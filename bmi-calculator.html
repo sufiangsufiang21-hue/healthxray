@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator - Body Mass Index Calculator | HealthXRay</title>
+    <meta name="description" content="Free BMI Calculator - Calculate your Body Mass Index instantly. Professional BMI analysis with health recommendations. Supports multiple languages (English, Urdu, Hindi). Accurate & private.">
+    <meta name="keywords" content="BMI calculator, body mass index calculator, BMI chart, weight calculator, health calculator, obesity calculator, underweight calculator, ideal weight calculator, BMI analysis, health assessment">
+    <meta name="author" content="HealthXRay">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English, Urdu, Hindi">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="BMI Calculator - Body Mass Index Calculator | HealthXRay">
+    <meta property="og:description" content="Calculate your BMI instantly with our professional Body Mass Index calculator. Get health recommendations and BMI analysis.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://healthxray.online/bmi-calculator.html">
+    <meta property="og:image" content="https://healthxray.online/images/bmi-calculator-og.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BMI Calculator - Body Mass Index Calculator">
+    <meta name="twitter:description" content="Free BMI calculator with professional health analysis and recommendations.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://healthxray.online/bmi-calculator.html">
+    
+    <!-- Alternate Language Links -->
+    <link rel="alternate" hreflang="en" href="https://healthxray.online/bmi-calculator.html">
+    <link rel="alternate" hreflang="ur" href="https://healthxray.online/bmi-calculator.html?lang=ur">
+    <link rel="alternate" hreflang="hi" href="https://healthxray.online/bmi-calculator.html?lang=hi">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="result-actions.js"></script>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "BMI Calculator - HealthXRay",
+        "description": "Professional BMI calculator to calculate Body Mass Index with health recommendations and analysis",
+        "url": "https://healthxray.online/bmi-calculator.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "BMI Calculation",
+            "Health Category Analysis",
+            "Weight Recommendations",
+            "Multilingual Support",
+            "Privacy Protection"
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "HealthXRay",
+            "url": "https://healthxray.online"
+        }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: #333;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #e83e8c, #ff7e5f);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 5px 15px rgba(232, 62, 140, 0.3);
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-icon {
+            font-size: 36px;
+        }
+        
+        .header-content h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        .header-content p {
+            font-size: 0.9rem;
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+        }
+        
+        .back-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .calculator-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .calculator-card h2 {
+            color: #2c786c;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            border-color: #e83e8c;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.1);
+        }
+        
+        .form-group small {
+            color: #6c757d;
+            display: block;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .calculate-btn {
+            background: linear-gradient(45deg, #e83e8c, #ff7e5f);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(232, 62, 140, 0.3);
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #fff5f7, #e8f4f8);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-card h2 {
+            color: #2c786c;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .step-number {
+            background: #e83e8c;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .step-content p {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+        
+        .results {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        
+        .results.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .results-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .results-header h2 {
+            color: #2c786c;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .bmi-display {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #fff5f7, #e8f4f8);
+            border-radius: 15px;
+            border: 3px solid #e83e8c;
+        }
+        
+        .bmi-value {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #e83e8c;
+            margin: 10px 0;
+        }
+        
+        .bmi-category {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .result-card {
+            background: linear-gradient(135deg, #fff5f7, #e8f4f8);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .result-card:hover {
+            border-color: #e83e8c;
+            transform: translateY(-5px);
+        }
+        
+        .result-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e83e8c;
+            margin: 15px 0;
+        }
+        
+        .result-unit {
+            color: #6c757d;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        
+        .bmi-chart {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .bmi-chart h3 {
+            text-align: center;
+            color: #2c786c;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+        
+        .chart-bar {
+            display: flex;
+            height: 60px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chart-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .underweight { background: #17a2b8; flex: 18.5; }
+        .normal { background: #28a745; flex: 6.5; }
+        .overweight { background: #ffc107; color: #333; flex: 5; }
+        .obese { background: #dc3545; flex: 10; }
+        
+        .chart-legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        
+        .educational-content {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .educational-content h2 {
+            color: #2c786c;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .content-card {
+            background: linear-gradient(135deg, #fff5f7, #e8f4f8);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #e83e8c;
+        }
+        
+        .content-card h3 {
+            color: #2c786c;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .content-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .content-card li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: #2c3e50;
+        }
+        
+        .content-card li:before {
+            content: "•";
+            color: #e83e8c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .health-risks {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .health-risks h3 {
+            color: #856404;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .disclaimer {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .disclaimer i {
+            color: #0c5460;
+            font-size: 24px;
+        }
+        
+        .disclaimer-text {
+            color: #0c5460;
+        }
+        
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                padding: 15px;
+            }
+            
+            .header-left {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .calculator-card, .info-card {
+                padding: 20px;
+            }
+            
+            .results-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            
+            .bmi-value {
+                font-size: 3rem;
+            }
+            
+            .chart-bar {
+                height: 40px;
+            }
+            
+            .chart-section {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Professional Header -->
+        <div class="header">
+            <div class="header-left">
+                <div class="header-icon">
+                    <i class="fas fa-weight"></i>
+                </div>
+                <div class="header-content">
+                    <h1 id="pageTitle">BMI Calculator</h1>
+                    <p id="pageSubtitle">Professional Body Mass Index analysis and health assessment</p>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div class="language-switcher" style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-globe" style="color: white; font-size: 16px;"></i>
+                    <select id="languageSelect" style="padding: 6px 10px; border: 2px solid rgba(255,255,255,0.3); border-radius: 6px; background: rgba(255,255,255,0.1); color: white; font-weight: 600; cursor: pointer; backdrop-filter: blur(10px);">
+                        <option value="en">English</option>
+                        <option value="ur">اردو</option>
+                        <option value="hi">हिंदी</option>
+                    </select>
+                </div>
+                <a href="index.html" class="back-btn" id="backBtn">
+                    <i class="fas fa-arrow-left"></i>
+                    <span id="backText">Back to Home</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Calculator Form -->
+            <div class="calculator-card">
+                <h2>
+                    <i class="fas fa-calculator"></i>
+                    <span id="calcTitle">Calculate Your BMI</span>
+                </h2>
+                
+                <form id="bmiForm">
+                    <div class="form-group">
+                        <label for="weight" id="weightLabel">Weight</label>
+                        <input type="number" id="weight" min="30" max="300" step="0.1" value="70" required>
+                        <small id="weightHelp">Enter your weight in kilograms</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="height" id="heightLabel">Height</label>
+                        <input type="number" id="height" min="100" max="250" step="0.1" value="170" required>
+                        <small id="heightHelp">Enter your height in centimeters</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age" id="ageLabel">Age (Optional)</label>
+                        <input type="number" id="age" min="2" max="120" value="30">
+                        <small id="ageHelp">Age helps provide more accurate health recommendations</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gender" id="genderLabel">Gender (Optional)</label>
+                        <select id="gender">
+                            <option value="">Select Gender</option>
+                            <option value="male" id="maleOption">Male</option>
+                            <option value="female" id="femaleOption">Female</option>
+                        </select>
+                        <small id="genderHelp">Gender helps provide personalized health insights</small>
+                    </div>
+                    
+                    <button type="submit" class="calculate-btn">
+                        <i class="fas fa-calculator"></i>
+                        <span id="calculateBtnText">Calculate BMI</span>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Information Panel -->
+            <div class="info-card">
+                <h2>
+                    <i class="fas fa-info-circle"></i>
+                    <span id="howItWorksTitle">Understanding BMI</span>
+                </h2>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 id="step1Title">Enter Your Measurements</h3>
+                        <p id="step1Desc">Input your current weight in kilograms and height in centimeters for accurate BMI calculation.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 id="step2Title">Get Your BMI Score</h3>
+                        <p id="step2Desc">BMI is calculated using the formula: weight (kg) ÷ height (m)². This gives you a numerical health indicator.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 id="step3Title">Understand Your Category</h3>
+                        <p id="step3Desc">Your BMI places you in a health category with specific recommendations for maintaining optimal health.</p>
+                    </div>
+                </div>
+                
+                <div class="disclaimer">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div class="disclaimer-text">
+                        <strong id="disclaimerTitle">Medical Disclaimer:</strong> <span id="disclaimerText">BMI is a screening tool. Consult healthcare professionals for comprehensive health assessment.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Educational Content -->
+        <div class="educational-content">
+            <h2 id="educationalTitle"><i class="fas fa-graduation-cap"></i> Complete BMI Guide & Health Information</h2>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3 id="bmiCategoriesTitle"><i class="fas fa-chart-line"></i> BMI Categories Explained</h3>
+                    <ul id="bmiCategoriesList">
+                        <li><strong>Underweight (< 18.5):</strong> May indicate malnutrition or underlying health issues</li>
+                        <li><strong>Normal (18.5-24.9):</strong> Optimal weight range for most adults</li>
+                        <li><strong>Overweight (25-29.9):</strong> Increased risk of health problems</li>
+                        <li><strong>Obese (≥ 30):</strong> Significantly increased health risks</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h3 id="healthBenefitsTitle"><i class="fas fa-heart"></i> Health Benefits of Normal BMI</h3>
+                    <ul id="healthBenefitsList">
+                        <li>Reduced risk of heart disease and stroke</li>
+                        <li>Lower chance of developing type 2 diabetes</li>
+                        <li>Decreased risk of certain cancers</li>
+                        <li>Better sleep quality and energy levels</li>
+                        <li>Improved joint health and mobility</li>
+                        <li>Enhanced mental well-being</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h3 id="weightManagementTitle"><i class="fas fa-utensils"></i> Healthy Weight Management</h3>
+                    <ul id="weightManagementList">
+                        <li>Eat a balanced diet with fruits and vegetables</li>
+                        <li>Control portion sizes and avoid overeating</li>
+                        <li>Stay hydrated with 8-10 glasses of water daily</li>
+                        <li>Limit processed foods and sugary drinks</li>
+                        <li>Include lean proteins and whole grains</li>
+                        <li>Practice mindful eating habits</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h3 id="exerciseTitle"><i class="fas fa-dumbbell"></i> Exercise Recommendations</h3>
+                    <ul id="exerciseList">
+                        <li>150 minutes of moderate aerobic activity weekly</li>
+                        <li>Strength training exercises 2+ days per week</li>
+                        <li>Include flexibility and balance exercises</li>
+                        <li>Start slowly and gradually increase intensity</li>
+                        <li>Find activities you enjoy for consistency</li>
+                        <li>Consult professionals for personalized plans</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h3 id="limitationsTitle"><i class="fas fa-brain"></i> BMI Limitations</h3>
+                    <ul id="limitationsList">
+                        <li>Doesn't distinguish between muscle and fat</li>
+                        <li>May not be accurate for athletes or bodybuilders</li>
+                        <li>Doesn't account for bone density differences</li>
+                        <li>Age and ethnicity can affect interpretation</li>
+                        <li>Pregnancy and medical conditions alter results</li>
+                        <li>Should be used with other health assessments</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h3 id="doctorTitle"><i class="fas fa-user-md"></i> When to See a Doctor</h3>
+                    <ul id="doctorList">
+                        <li>BMI outside normal range with health concerns</li>
+                        <li>Rapid unexplained weight changes</li>
+                        <li>Difficulty losing or gaining weight</li>
+                        <li>Family history of obesity-related diseases</li>
+                        <li>Existing medical conditions affecting weight</li>
+                        <li>Need for personalized weight management plan</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Health Risks Section -->
+            <div class="health-risks">
+                <h3 id="healthRisksTitle"><i class="fas fa-exclamation-triangle"></i> Health Risks by BMI Category</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
+                    <div>
+                        <h4 style="color: #17a2b8; margin-bottom: 8px;">Underweight Risks:</h4>
+                        <p style="font-size: 0.9rem; color: #856404;">Weakened immune system, osteoporosis, anemia, fertility issues</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #ffc107; margin-bottom: 8px;">Overweight Risks:</h4>
+                        <p style="font-size: 0.9rem; color: #856404;">High blood pressure, sleep apnea, type 2 diabetes, heart disease</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #dc3545; margin-bottom: 8px;">Obesity Risks:</h4>
+                        <p style="font-size: 0.9rem; color: #856404;">Severe diabetes, heart disease, stroke, certain cancers, depression</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BMI for Different Age Groups -->
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h3 id="ageGroupsTitle" style="color: #2c786c; margin-bottom: 15px; text-align: center;">
+                    <i class="fas fa-users"></i> BMI Considerations by Age Group
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div style="text-align: center; padding: 15px;">
+                        <h4 style="color: #e83e8c; margin-bottom: 8px;">Children (2-19 years)</h4>
+                        <p style="font-size: 0.85rem; color: #2c3e50;">BMI percentiles used instead of standard categories. Growth charts essential.</p>
+                    </div>
+                    <div style="text-align: center; padding: 15px;">
+                        <h4 style="color: #e83e8c; margin-bottom: 8px;">Adults (20-64 years)</h4>
+                        <p style="font-size: 0.85rem; color: #2c3e50;">Standard BMI categories apply. Peak health maintenance period.</p>
+                    </div>
+                    <div style="text-align: center; padding: 15px;">
+                        <h4 style="color: #e83e8c; margin-bottom: 8px;">Seniors (65+ years)</h4>
+                        <p style="font-size: 0.85rem; color: #2c3e50;">Slightly higher BMI may be protective. Muscle mass preservation crucial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div id="bmiResults" class="results">
+            <!-- Results will be populated here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Language system
+        let currentLanguage = 'en';
+        
+        const translations = {
+            en: {
+                pageTitle: "BMI Calculator",
+                pageSubtitle: "Professional Body Mass Index analysis and health assessment",
+                backText: "Back to Home",
+                calcTitle: "Calculate Your BMI",
+                weightLabel: "Weight (kg)",
+                weightHelp: "Enter your weight in kilograms",
+                heightLabel: "Height (cm)",
+                heightHelp: "Enter your height in centimeters",
+                ageLabel: "Age (Optional)",
+                ageHelp: "Age helps provide more accurate health recommendations",
+                genderLabel: "Gender (Optional)",
+                genderHelp: "Gender helps provide personalized health insights",
+                maleOption: "Male",
+                femaleOption: "Female",
+                calculateBtnText: "Calculate BMI",
+                howItWorksTitle: "Understanding BMI",
+                step1Title: "Enter Your Measurements",
+                step1Desc: "Input your current weight in kilograms and height in centimeters for accurate BMI calculation.",
+                step2Title: "Get Your BMI Score",
+                step2Desc: "BMI is calculated using the formula: weight (kg) ÷ height (m)². This gives you a numerical health indicator.",
+                step3Title: "Understand Your Category",
+                step3Desc: "Your BMI places you in a health category with specific recommendations for maintaining optimal health.",
+                disclaimerTitle: "Medical Disclaimer:",
+                disclaimerText: "BMI is a screening tool. Consult healthcare professionals for comprehensive health assessment.",
+                // Educational content
+                educationalTitle: "Complete BMI Guide & Health Information",
+                bmiCategoriesTitle: "BMI Categories Explained",
+                healthBenefitsTitle: "Health Benefits of Normal BMI",
+                weightManagementTitle: "Healthy Weight Management",
+                exerciseTitle: "Exercise Recommendations",
+                limitationsTitle: "BMI Limitations",
+                doctorTitle: "When to See a Doctor",
+                healthRisksTitle: "Health Risks by BMI Category",
+                ageGroupsTitle: "BMI Considerations by Age Group"
+            },
+            ur: {
+                pageTitle: "BMI کیلکولیٹر",
+                pageSubtitle: "پیشہ ورانہ باڈی ماس انڈیکس تجزیہ اور صحت کی تشخیص",
+                backText: "واپس ہوم",
+                calcTitle: "اپنا BMI کیلکولیٹ کریں",
+                weightLabel: "وزن (کلوگرام)",
+                weightHelp: "اپنا وزن کلوگرام میں درج کریں",
+                heightLabel: "قد (سینٹی میٹر)",
+                heightHelp: "اپنا قد سینٹی میٹر میں درج کریں",
+                ageLabel: "عمر (اختیاری)",
+                ageHelp: "عمر زیادہ درست صحت کی تجاویز فراہم کرنے میں مدد کرتی ہے",
+                genderLabel: "جنس (اختیاری)",
+                genderHelp: "جنس ذاتی صحت کی بصیرت فراہم کرنے میں مدد کرتی ہے",
+                maleOption: "مرد",
+                femaleOption: "عورت",
+                calculateBtnText: "BMI کیلکولیٹ کریں",
+                howItWorksTitle: "BMI کو سمجھنا",
+                step1Title: "اپنی پیمائش درج کریں",
+                step1Desc: "درست BMI کیلکولیشن کے لیے اپنا موجودہ وزن کلوگرام میں اور قد سینٹی میٹر میں درج کریں۔",
+                step2Title: "اپنا BMI سکور حاصل کریں",
+                step2Desc: "BMI کا حساب اس فارمولے سے لگایا جاتا ہے: وزن (کلوگرام) ÷ قد (میٹر)²۔ یہ آپ کو صحت کا عددی اشارہ دیتا ہے۔",
+                step3Title: "اپنی کیٹگری کو سمجھیں",
+                step3Desc: "آپ کا BMI آپ کو ایک صحت کی کیٹگری میں رکھتا ہے جس میں بہترین صحت برقرار رکھنے کی مخصوص تجاویز ہیں۔",
+                disclaimerTitle: "طبی اعلان:",
+                disclaimerText: "BMI ایک اسکریننگ ٹول ہے۔ جامع صحت کی تشخیص کے لیے صحت کے پیشہ ور افراد سے مشورہ کریں۔",
+                // Educational content in Urdu
+                educationalTitle: "مکمل BMI گائیڈ اور صحت کی معلومات",
+                bmiCategoriesTitle: "BMI کیٹگریز کی وضاحت",
+                healthBenefitsTitle: "نارمل BMI کے صحت کے فوائد",
+                weightManagementTitle: "صحت مند وزن کا انتظام",
+                exerciseTitle: "ورزش کی تجاویز",
+                limitationsTitle: "BMI کی حدود",
+                doctorTitle: "ڈاکٹر سے کب ملیں",
+                healthRisksTitle: "BMI کیٹگری کے مطابق صحت کے خطرات",
+                ageGroupsTitle: "عمر کے گروپ کے مطابق BMI کے اعتبارات"
+            },
+            hi: {
+                pageTitle: "BMI कैलकुलेटर",
+                pageSubtitle: "पेशेवर बॉडी मास इंडेक्स विश्लेषण और स्वास्थ्य मूल्यांकन",
+                backText: "होम पर वापस",
+                calcTitle: "अपना BMI कैलकुलेट करें",
+                weightLabel: "वजन (किलोग्राम)",
+                weightHelp: "अपना वजन किलोग्राम में दर्ज करें",
+                heightLabel: "ऊंचाई (सेंटीमीटर)",
+                heightHelp: "अपनी ऊंचाई सेंटीमीटर में दर्ज करें",
+                ageLabel: "आयु (वैकल्पिक)",
+                ageHelp: "आयु अधिक सटीक स्वास्थ्य सिफारिशें प्रदान करने में मदद करती है",
+                genderLabel: "लिंग (वैकल्पिक)",
+                genderHelp: "लिंग व्यक्तिगत स्वास्थ्य अंतर्दृष्टि प्रदान करने में मदद करता है",
+                maleOption: "पुरुष",
+                femaleOption: "महिला",
+                calculateBtnText: "BMI कैलकुलेट करें",
+                howItWorksTitle: "BMI को समझना",
+                step1Title: "अपनी माप दर्ज करें",
+                step1Desc: "सटीक BMI गणना के लिए अपना वर्तमान वजन किलोग्राम में और ऊंचाई सेंटीमीटर में दर्ज करें।",
+                step2Title: "अपना BMI स्कोर प्राप्त करें",
+                step2Desc: "BMI की गणना इस सूत्र का उपयोग करके की जाती है: वजन (किग्रा) ÷ ऊंचाई (मी)²। यह आपको एक संख्यात्मक स्वास्थ्य संकेतक देता है।",
+                step3Title: "अपनी श्रेणी को समझें",
+                step3Desc: "आपका BMI आपको एक स्वास्थ्य श्रेणी में रखता है जिसमें इष्टतम स्वास्थ्य बनाए रखने की विशिष्ट सिफारिशें हैं।",
+                disclaimerTitle: "चिकित्सा अस्वीकरण:",
+                disclaimerText: "BMI एक स्क्रीनिंग उपकरण है। व्यापक स्वास्थ्य मूल्यांकन के लिए स्वास्थ्य पेशेवरों से सलाह लें।",
+                // Educational content in Hindi
+                educationalTitle: "संपूर्ण BMI गाइड और स्वास्थ्य जानकारी",
+                bmiCategoriesTitle: "BMI श्रेणियों की व्याख्या",
+                healthBenefitsTitle: "सामान्य BMI के स्वास्थ्य लाभ",
+                weightManagementTitle: "स्वस्थ वजन प्रबंधन",
+                exerciseTitle: "व्यायाम की सिफारिशें",
+                limitationsTitle: "BMI की सीमाएं",
+                doctorTitle: "डॉक्टर से कब मिलें",
+                healthRisksTitle: "BMI श्रेणी के अनुसार स्वास्थ्य जोखिम",
+                ageGroupsTitle: "आयु समूह के अनुसार BMI विचार"
+            }
+        };
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadLanguageFromStorage();
+            updateLanguage();
+            setupEventListeners();
+        });
+        
+        function setupEventListeners() {
+            // Language switcher
+            document.getElementById('languageSelect').addEventListener('change', function(e) {
+                currentLanguage = e.target.value;
+                localStorage.setItem('healthxray-language', currentLanguage);
+                updateLanguage();
+            });
+            
+            // Form submission
+            document.getElementById('bmiForm').addEventListener('submit', calculateBMI);
+        }
+        
+        function loadLanguageFromStorage() {
+            const savedLanguage = localStorage.getItem('healthxray-language');
+            if (savedLanguage && translations[savedLanguage]) {
+                currentLanguage = savedLanguage;
+                document.getElementById('languageSelect').value = currentLanguage;
+            }
+        }
+        
+        function updateLanguage() {
+            const t = translations[currentLanguage];
+            
+            // Update page elements
+            document.getElementById('pageTitle').textContent = t.pageTitle;
+            document.getElementById('pageSubtitle').textContent = t.pageSubtitle;
+            document.getElementById('backText').textContent = t.backText;
+            document.getElementById('calcTitle').textContent = t.calcTitle;
+            document.getElementById('weightLabel').textContent = t.weightLabel;
+            document.getElementById('weightHelp').textContent = t.weightHelp;
+            document.getElementById('heightLabel').textContent = t.heightLabel;
+            document.getElementById('heightHelp').textContent = t.heightHelp;
+            document.getElementById('ageLabel').textContent = t.ageLabel;
+            document.getElementById('ageHelp').textContent = t.ageHelp;
+            document.getElementById('genderLabel').textContent = t.genderLabel;
+            document.getElementById('genderHelp').textContent = t.genderHelp;
+            document.getElementById('maleOption').textContent = t.maleOption;
+            document.getElementById('femaleOption').textContent = t.femaleOption;
+            document.getElementById('calculateBtnText').textContent = t.calculateBtnText;
+            document.getElementById('howItWorksTitle').textContent = t.howItWorksTitle;
+            document.getElementById('step1Title').textContent = t.step1Title;
+            document.getElementById('step1Desc').textContent = t.step1Desc;
+            document.getElementById('step2Title').textContent = t.step2Title;
+            document.getElementById('step2Desc').textContent = t.step2Desc;
+            document.getElementById('step3Title').textContent = t.step3Title;
+            document.getElementById('step3Desc').textContent = t.step3Desc;
+            document.getElementById('disclaimerTitle').textContent = t.disclaimerTitle;
+            document.getElementById('disclaimerText').textContent = t.disclaimerText;
+            
+            // Update educational content
+            if (document.getElementById('educationalTitle')) {
+                document.getElementById('educationalTitle').innerHTML = `<i class="fas fa-graduation-cap"></i> ${t.educationalTitle}`;
+                document.getElementById('bmiCategoriesTitle').innerHTML = `<i class="fas fa-chart-line"></i> ${t.bmiCategoriesTitle}`;
+                document.getElementById('healthBenefitsTitle').innerHTML = `<i class="fas fa-heart"></i> ${t.healthBenefitsTitle}`;
+                document.getElementById('weightManagementTitle').innerHTML = `<i class="fas fa-utensils"></i> ${t.weightManagementTitle}`;
+                document.getElementById('exerciseTitle').innerHTML = `<i class="fas fa-dumbbell"></i> ${t.exerciseTitle}`;
+                document.getElementById('limitationsTitle').innerHTML = `<i class="fas fa-brain"></i> ${t.limitationsTitle}`;
+                document.getElementById('doctorTitle').innerHTML = `<i class="fas fa-user-md"></i> ${t.doctorTitle}`;
+                document.getElementById('healthRisksTitle').innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${t.healthRisksTitle}`;
+                document.getElementById('ageGroupsTitle').innerHTML = `<i class="fas fa-users"></i> ${t.ageGroupsTitle}`;
+                
+                // Update content based on language
+                updateEducationalContent(currentLanguage);
+            }
+            
+            // Set document language
+            document.documentElement.lang = currentLanguage;
+            document.title = t.pageTitle + ' - HealthXRay';
+        }
+        
+        function updateEducationalContent(lang) {
+            const content = {
+                en: {
+                    bmiCategories: [
+                        "<strong>Underweight (< 18.5):</strong> May indicate malnutrition or underlying health issues",
+                        "<strong>Normal (18.5-24.9):</strong> Optimal weight range for most adults",
+                        "<strong>Overweight (25-29.9):</strong> Increased risk of health problems",
+                        "<strong>Obese (≥ 30):</strong> Significantly increased health risks"
+                    ],
+                    healthBenefits: [
+                        "Reduced risk of heart disease and stroke",
+                        "Lower chance of developing type 2 diabetes",
+                        "Decreased risk of certain cancers",
+                        "Better sleep quality and energy levels",
+                        "Improved joint health and mobility",
+                        "Enhanced mental well-being"
+                    ],
+                    weightManagement: [
+                        "Eat a balanced diet with fruits and vegetables",
+                        "Control portion sizes and avoid overeating",
+                        "Stay hydrated with 8-10 glasses of water daily",
+                        "Limit processed foods and sugary drinks",
+                        "Include lean proteins and whole grains",
+                        "Practice mindful eating habits"
+                    ],
+                    exercise: [
+                        "150 minutes of moderate aerobic activity weekly",
+                        "Strength training exercises 2+ days per week",
+                        "Include flexibility and balance exercises",
+                        "Start slowly and gradually increase intensity",
+                        "Find activities you enjoy for consistency",
+                        "Consult professionals for personalized plans"
+                    ],
+                    limitations: [
+                        "Doesn't distinguish between muscle and fat",
+                        "May not be accurate for athletes or bodybuilders",
+                        "Doesn't account for bone density differences",
+                        "Age and ethnicity can affect interpretation",
+                        "Pregnancy and medical conditions alter results",
+                        "Should be used with other health assessments"
+                    ],
+                    doctor: [
+                        "BMI outside normal range with health concerns",
+                        "Rapid unexplained weight changes",
+                        "Difficulty losing or gaining weight",
+                        "Family history of obesity-related diseases",
+                        "Existing medical conditions affecting weight",
+                        "Need for personalized weight management plan"
+                    ]
+                },
+                ur: {
+                    bmiCategories: [
+                        "<strong>کم وزن (< 18.5):</strong> غذائی کمی یا بنیادی صحت کے مسائل کا اشارہ",
+                        "<strong>نارمل (18.5-24.9):</strong> زیادہ تر بالغافراد کے لیے بہترین وزن کی حد",
+                        "<strong>زیادہ وزن (25-29.9):</strong> صحت کے مسائل کا بڑھا ہوا خطرہ",
+                        "<strong>موٹاپا (≥ 30):</strong> صحت کے نمایاں طور پر بڑھے ہوئے خطرات"
+                    ],
+                    healthBenefits: [
+                        "دل کی بیماری اور فالج کا کم خطرہ",
+                        "ٹائپ 2 ذیابیطس ہونے کا کم امکان",
+                        "مخصوص قسم کے کینسر کا کم خطرہ",
+                        "بہتر نیند کا معیار اور انرجی کی سطح",
+                        "جوڑوں کی بہتر صحت اور حرکت",
+                        "ذہنی صحت میں بہتری"
+                    ],
+                    weightManagement: [
+                        "پھلوں اور سبزیوں کے ساتھ متوازن غذا کھائیں",
+                        "حصوں کے سائز کو کنٹرول کریں اور زیادہ کھانے سے بچیں",
+                        "روزانہ 8-10 گلاس پانی پیں",
+                        "پروسیسڈ فوڈز اور میٹھے مشروبات سے پرہیز کریں",
+                        "کم چکنائی والے پروٹین اور سابت اناج شامل کریں",
+                        "ہوشیاری سے کھانے کی عادات اپنائیں"
+                    ],
+                    exercise: [
+                        "ہفتے میں 150 منٹ معتدل ایروبک سرگرمی",
+                        "ہفتے میں 2+ دن طاقت کی ورزشیں",
+                        "لچک اور توازن کی ورزشیں شامل کریں",
+                        "آہستہ شروع کریں اور بتدریج شدت بڑھائیں",
+                        "ایسی سرگرمیاں تلاش کریں جو آپ کو پسند ہوں",
+                        "ذاتی منصوبوں کے لیے ماہرین سے مشورہ کریں"
+                    ],
+                    limitations: [
+                        "پھٹی اور چربی میں فرق نہیں کرتا",
+                        "کھلاڑیوں یا باڈی بلڈرز کے لیے درست نہیں ہو سکتا",
+                        "ہڈیوں کی گھنائی کے فرق کو مد نظر نہیں رکھتا",
+                        "عمر اور نسل تشریح کو متاثر کر سکتے ہیں",
+                        "حمل اور طبی حالات نتائج کو بدل دیتے ہیں",
+                        "دیگر صحت کی تشخیصوں کے ساتھ استعمال کرنا چاہیے"
+                    ],
+                    doctor: [
+                        "BMI نارمل حد سے باہر اور صحت کے مسائل",
+                        "تیزی سے غیر وضاحتی وزن کی تبدیلیاں",
+                        "وزن کم یا بڑھانے میں مشکل",
+                        "موٹاپے سے متعلق بیماریوں کی خاندانی تاریخ",
+                        "وزن کو متاثر کرنے والے موجودہ طبی حالات",
+                        "ذاتی وزن کے انتظام کے منصوبے کی ضرورت"
+                    ]
+                },
+                hi: {
+                    bmiCategories: [
+                        "<strong>कम वजन (< 18.5):</strong> कुपोषण या अंतर्निहित स्वास्थ्य समस्याओं का संकेत",
+                        "<strong>सामान्य (18.5-24.9):</strong> अधिकांश वयस्कों के लिए इष्टतम वजन सीमा",
+                        "<strong>अधिक वजन (25-29.9):</strong> स्वास्थ्य समस्याओं का बढ़ा हुआ जोखिम",
+                        "<strong>मोटापा (≥ 30):</strong> स्वास्थ्य के गंभीर रूप से बढ़े हुए जोखिम"
+                    ],
+                    healthBenefits: [
+                        "हृदय रोग और स्ट्रोक का कम जोखिम",
+                        "टाइप 2 मधुमेह होने की कम संभावना",
+                        "कुछ विशेष प्रकार के कैंसर का कम जोखिम",
+                        "बेहतर नींद की गुणवत्ता और ऊर्जा का स्तर",
+                        "जोड़ों की बेहतर स्वास्थ्य और गतिशीलता",
+                        "मानसिक कल्याण में वृद्धि"
+                    ],
+                    weightManagement: [
+                        "फलों और सब्जियों के साथ संतुलित आहार लें",
+                        "भोजन के हिस्से को नियंत्रित करें और अधिक खाने से बचें",
+                        "दिन में 8-10 गिलास पानी पिएं",
+                        "प्रोसेस्ड फूड और मीठे पेय को सीमित करें",
+                        "कम चर्बी वाले प्रोटीन और साबुत अनाज शामिल करें",
+                        "सचेत खाने की आदतें अपनाएं"
+                    ],
+                    exercise: [
+                        "साप्ताहिक 150 मिनट मध्यम एरोबिक गतिविधि",
+                        "सप्ताह में 2+ दिन शक्ति प्रशिक्षण व्यायाम",
+                        "लचीलापन और संतुलन व्यायाम शामिल करें",
+                        "धीरे-धीरे शुरू करें और क्रमिक रूप से तीव्रता बढ़ाएं",
+                        "ऐसी गतिविधियां खोजें जिन्हें आप पसंद करते हैं",
+                        "व्यक्तिगत योजनाओं के लिए पेशेवरों से सलाह लें"
+                    ],
+                    limitations: [
+                        "मांसपेशी और चर्बी के बीच अंतर नहीं करता",
+                        "एथलीटों या बॉडीबिल्डरों के लिए सटीक नहीं हो सकता",
+                        "हड्डी की घनता के अंतर को ध्यान में नहीं रखता",
+                        "उम्र और जातियता व्याख्या को प्रभावित कर सकते हैं",
+                        "गर्भावस्था और चिकित्सा स्थितियां परिणामों को बदल देती हैं",
+                        "अन्य स्वास्थ्य मूल्यांकनों के साथ उपयोग करना चाहिए"
+                    ],
+                    doctor: [
+                        "BMI सामान्य सीमा से बाहर और स्वास्थ्य समस्याएं",
+                        "तेजी से अस्पष्ट वजन परिवर्तन",
+                        "वजन कम या बढ़ाने में कठिनाई",
+                        "मोटापे से संबंधित बीमारियों का पारिवारिक इतिहास",
+                        "वजन को प्रभावित करने वाली मौजूदा चिकित्सा स्थितियां",
+                        "व्यक्तिगत वजन प्रबंधन योजना की आवश्यकता"
+                    ]
+                }
+            };
+            
+            const langContent = content[lang];
+            
+            // Update lists
+            updateList('bmiCategoriesList', langContent.bmiCategories);
+            updateList('healthBenefitsList', langContent.healthBenefits);
+            updateList('weightManagementList', langContent.weightManagement);
+            updateList('exerciseList', langContent.exercise);
+            updateList('limitationsList', langContent.limitations);
+            updateList('doctorList', langContent.doctor);
+        }
+        
+        function updateList(listId, items) {
+            const list = document.getElementById(listId);
+            if (list) {
+                list.innerHTML = items.map(item => `<li>${item}</li>`).join('');
+            }
+        }
+
+        function calculateBMI(e) {
+            e.preventDefault();
+            
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value) / 100; // Convert to meters
+            const age = parseInt(document.getElementById('age').value) || null;
+            const gender = document.getElementById('gender').value || null;
+            
+            // Calculate BMI
+            const bmi = weight / (height * height);
+            const roundedBMI = bmi.toFixed(1);
+            
+            // Determine BMI category and color
+            let category, categoryColor, advice, healthRisk;
+            
+            if (bmi < 18.5) {
+                category = "Underweight";
+                categoryColor = "#17a2b8";
+                advice = "You may need to gain weight. Consider consulting a healthcare provider for a personalized nutrition plan.";
+                healthRisk = "Low to moderate risk of health problems related to being underweight.";
+            } else if (bmi >= 18.5 && bmi < 25) {
+                category = "Normal Weight";
+                categoryColor = "#28a745";
+                advice = "Congratulations! You're in the healthy weight range. Maintain your current lifestyle with balanced diet and regular exercise.";
+                healthRisk = "Lowest risk of weight-related health problems.";
+            } else if (bmi >= 25 && bmi < 30) {
+                category = "Overweight";
+                categoryColor = "#ffc107";
+                advice = "Consider losing weight through a combination of healthy eating and increased physical activity.";
+                healthRisk = "Increased risk of heart disease, high blood pressure, and type 2 diabetes.";
+            } else {
+                category = "Obese";
+                categoryColor = "#dc3545";
+                advice = "It's important to lose weight for your health. Consult a healthcare provider for a comprehensive weight management plan.";
+                healthRisk = "High risk of serious health problems including heart disease, diabetes, and stroke.";
+            }
+            
+            // Calculate ideal weight range
+            const minIdealWeight = (18.5 * height * height).toFixed(1);
+            const maxIdealWeight = (25 * height * height).toFixed(1);
+            
+            // Calculate weight difference
+            let weightDifference = 0;
+            let weightAction = "";
+            if (bmi < 18.5) {
+                weightDifference = (18.5 * height * height - weight).toFixed(1);
+                weightAction = "gain";
+            } else if (bmi >= 25) {
+                weightDifference = (weight - 25 * height * height).toFixed(1);
+                weightAction = "lose";
+            }
+            
+            // Display results
+            const resultsDiv = document.getElementById('bmiResults');
+            resultsDiv.innerHTML = `
+                <div class="results-header">
+                    <h2>Your BMI Analysis Results</h2>
+                    <p>Comprehensive health assessment based on your measurements</p>
+                </div>
+                
+                <!-- Patient Information -->
+                <div style="background: linear-gradient(135deg, #fff5f7, #fef7f0); padding: 20px; border-radius: 12px; margin-bottom: 25px; border-left: 5px solid #e83e8c;">
+                    <h3 style="color: #e83e8c; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-user"></i> Patient Information
+                    </h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; font-size: 0.95rem;">
+                        <div><strong>Weight:</strong> ${weight} kg</div>
+                        <div><strong>Height:</strong> ${(height * 100).toFixed(0)} cm</div>
+                        ${age ? `<div><strong>Age:</strong> ${age} years</div>` : ''}
+                        ${gender ? `<div><strong>Gender:</strong> ${gender.charAt(0).toUpperCase() + gender.slice(1)}</div>` : ''}
+                        <div><strong>Calculation Date:</strong> ${new Date().toLocaleDateString()}</div>
+                    </div>
+                </div>
+                
+                <!-- BMI Display -->
+                <div class="bmi-display">
+                    <div class="bmi-value" style="color: ${categoryColor};">${roundedBMI}</div>
+                    <div class="bmi-category" style="color: ${categoryColor};">${category}</div>
+                    <p style="color: #6c757d; margin: 0;">${advice}</p>
+                </div>
+                
+                <!-- Results Grid -->
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Your BMI</h3>
+                        <div class="result-value">${roundedBMI}</div>
+                        <div class="result-unit">kg/m²</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Category</h3>
+                        <div class="result-value" style="font-size: 1.5rem; color: ${categoryColor};">${category}</div>
+                        <div class="result-unit">Health Status</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Ideal Weight Range</h3>
+                        <div class="result-value" style="font-size: 1.8rem;">${minIdealWeight}-${maxIdealWeight}</div>
+                        <div class="result-unit">kg</div>
+                    </div>
+                    
+                    ${weightDifference > 0 ? `
+                    <div class="result-card">
+                        <h3>Weight to ${weightAction === 'gain' ? 'Gain' : 'Lose'}</h3>
+                        <div class="result-value">${weightDifference}</div>
+                        <div class="result-unit">kg</div>
+                    </div>
+                    ` : ''}
+                </div>
+                
+                <!-- BMI Chart -->
+                <div class="bmi-chart">
+                    <h3>BMI Categories Chart</h3>
+                    <div class="chart-bar">
+                        <div class="chart-section underweight">Underweight<br>&lt; 18.5</div>
+                        <div class="chart-section normal">Normal<br>18.5 - 24.9</div>
+                        <div class="chart-section overweight">Overweight<br>25 - 29.9</div>
+                        <div class="chart-section obese">Obese<br>≥ 30</div>
+                    </div>
+                    
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #17a2b8;"></div>
+                            <div>
+                                <strong>Underweight:</strong> BMI less than 18.5<br>
+                                <small>May indicate malnutrition or health issues</small>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #28a745;"></div>
+                            <div>
+                                <strong>Normal Weight:</strong> BMI 18.5 to 24.9<br>
+                                <small>Optimal weight range for most adults</small>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #ffc107;"></div>
+                            <div>
+                                <strong>Overweight:</strong> BMI 25 to 29.9<br>
+                                <small>Increased risk of health problems</small>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #dc3545;"></div>
+                            <div>
+                                <strong>Obese:</strong> BMI 30 or greater<br>
+                                <small>High risk of serious health conditions</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Health Risk Assessment -->
+                <div style="background: white; padding: 25px; border-radius: 12px; margin-top: 25px; border: 2px solid ${categoryColor};">
+                    <h3 style="color: ${categoryColor}; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-heartbeat"></i> Health Risk Assessment
+                    </h3>
+                    <p style="color: #2c3e50; margin-bottom: 15px;"><strong>Risk Level:</strong> ${healthRisk}</p>
+                    <p style="color: #2c3e50;"><strong>Recommendation:</strong> ${advice}</p>
+                </div>
+            `;
+            
+            // Add professional action buttons for PDF, print, and share
+            const resultData = {
+                bmi: roundedBMI,
+                category,
+                weight,
+                height: (height * 100).toFixed(0),
+                age,
+                gender,
+                idealWeightRange: `${minIdealWeight}-${maxIdealWeight} kg`,
+                weightDifference: weightDifference > 0 ? `${weightDifference} kg to ${weightAction}` : 'At ideal weight',
+                healthRisk,
+                advice,
+                patientInfo: {
+                    weight: `${weight} kg`,
+                    height: `${(height * 100).toFixed(0)} cm`,
+                    age: age ? `${age} years` : 'Not specified',
+                    gender: gender ? gender.charAt(0).toUpperCase() + gender.slice(1) : 'Not specified',
+                    calculationDate: new Date().toLocaleDateString()
+                }
+            };
+            
+            // Add action buttons using result-actions.js
+            if (typeof resultActions !== 'undefined') {
+                resultActions.addActionButtons(resultsDiv, resultData, 'bmi');
+            }
+            
+            resultsDiv.classList.add('active');
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

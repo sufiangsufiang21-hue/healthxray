@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - HealthXRay</title>
+    <meta name="description" content="HealthXRay Terms of Service - Legal terms and conditions for using our health calculator tools">
+    <link rel="canonical" href="https://healthxray.online/terms-of-service.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Breadcrumb Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://healthxray.online/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Terms of Service",
+                "item": "https://healthxray.online/terms-of-service.html"
+            }
+        ]
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2c786c;
+            --secondary: #ff7e5f;
+            --accent: #f8b400;
+            --success: #28a745;
+            --light: #f9f9f9;
+            --dark: #2c3e50;
+            --gray: #6c757d;
+            --pink-light: #fff5f7;
+            --pink-dark: #e83e8c;
+            --border-radius: 12px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: #333;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .logo i {
+            color: var(--pink-dark);
+            font-size: 32px;
+        }
+        
+        .logo h1 {
+            font-size: 26px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--pink-dark);
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            background: white;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .breadcrumb nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--pink-dark);
+        }
+        
+        .breadcrumb span {
+            color: var(--gray);
+        }
+        
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .content-card h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .content-card h3 {
+            color: var(--dark);
+            margin: 25px 0 15px 0;
+            font-size: 1.3rem;
+        }
+        
+        .content-card p {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .content-card ul {
+            margin: 15px 0 15px 30px;
+            color: var(--dark);
+        }
+        
+        .content-card li {
+            margin-bottom: 8px;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .warning-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .warning-box p {
+            color: #856404;
+        }
+        
+        .info-box {
+            background: var(--pink-light);
+            border-left: 4px solid var(--pink-dark);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .info-box h4 {
+            color: var(--pink-dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            text-align: center;
+        }
+        
+        .footer-content p {
+            margin-bottom: 15px;
+        }
+        
+        .footer-content a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .footer-content a:hover {
+            color: var(--accent);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 25px 20px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .breadcrumb nav {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <h1>Health<span>XRay</span></h1>
+            </a>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav>
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Terms of Service</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="page-header">
+            <h1><i class="fas fa-file-contract"></i> Terms of Service</h1>
+            <p>Please read these terms carefully before using our health calculator tools.</p>
+        </div>
+
+        <div class="content-card">
+            <h2><i class="fas fa-handshake"></i> Agreement to Terms</h2>
+            <p>By accessing and using HealthXRay ("we," "our," or "us"), you accept and agree to be bound by the terms and provision of this agreement.</p>
+            
+            <div class="info-box">
+                <h4><i class="fas fa-calendar-alt"></i> Effective Date</h4>
+                <p>These Terms of Service are effective as of December 2024 and were last updated on December 2024.</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2><i class="fas fa-tools"></i> Description of Service</h2>
+            <p>HealthXRay provides free online health calculator tools including:</p>
+            <ul>
+                <li>BMI (Body Mass Index) Calculator</li>
+                <li>Calorie Calculator</li>
+                <li>Period/Menstrual Cycle Calculator</li>
+                <li>Pregnancy Calculator</li>
+            </ul>
+            
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Medical Disclaimer</h4>
+                <p><strong>Important:</strong> Our tools provide estimates and general information only. They are NOT a substitute for professional medical advice, diagnosis, or treatment. Always consult with qualified healthcare providers for medical concerns.</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2><i class="fas fa-user-check"></i> Acceptable Use</h2>
+            
+            <h3>You May:</h3>
+            <ul>
+                <li>Use our calculators for personal, non-commercial purposes</li>
+                <li>Share results with your healthcare providers</li>
+                <li>Access the service from any compatible device</li>
+                <li>Use the tools as often as needed</li>
+            </ul>
+
+            <h3>You May NOT:</h3>
+            <ul>
+                <li>Use the service for commercial purposes without permission</li>
+                <li>Attempt to reverse engineer or copy our algorithms</li>
+                <li>Use automated tools to access the service excessively</li>
+                <li>Distribute malware or harmful content through our platform</li>
+                <li>Violate any applicable laws or regulations</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h2><i class="fas fa-shield-alt"></i> Privacy and Data</h2>
+            <p>Your privacy is important to us. Please review our Privacy Policy to understand how we handle your information.</p>
+            
+            <h3>Key Privacy Points:</h3>
+            <ul>
+                <li>All calculations are performed locally in your browser</li>
+                <li>We do not store or transmit your health data</li>
+                <li>No personal health information is collected</li>
+                <li>Your data remains on your device</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h2><i class="fas fa-exclamation-circle"></i> Disclaimers and Limitations</h2>
+            
+            <h3>Medical Disclaimer:</h3>
+            <p>The information provided by HealthXRay is for educational and informational purposes only. It is not intended as medical advice and should not be relied upon as a substitute for consultations with qualified health professionals.</p>
+
+            <h3>Accuracy Disclaimer:</h3>
+            <p>While we strive for accuracy, we make no warranties about the completeness, reliability, or accuracy of the information provided by our calculators.</p>
+
+            <h3>Limitation of Liability:</h3>
+            <p>HealthXRay shall not be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use our service.</p>
+        </div>
+
+        <div class="content-card">
+            <h2><i class="fas fa-ban"></i> Service Availability</h2>
+            <p>We strive to maintain continuous service availability, but we do not guarantee uninterrupted access. We reserve the right to:</p>
+            <ul>
+                <li>Modify or discontinue the service with or without notice</li>
+                <li>Perform maintenance that may temporarily affect availability</li>
+                <li>Update our calculators and algorithms for improved accuracy</li>
+                <li>Block access from users who violate these terms</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h2><i class="fas fa-copyright"></i> Intellectual Property</h2>
+            <p>The HealthXRay service, including its design, algorithms, and content, is protected by copyright and other intellectual property laws.</p>
+            
+            <h3>Our Rights:</h3>
+            <ul>
+                <li>We own all rights to the HealthXRay brand and service</li>
+                <li>Our algorithms and calculations methods are proprietary</li>
+                <li>The website design and user interface are our intellectual property</li>
+            </ul>
+
+            <h3>Your Rights:</h3>
+            <ul>
+                <li>You retain rights to any data you input into our calculators</li>
+                <li>You may use calculation results for personal purposes</li>
+                <li>You may share our service with others</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h2><i class="fas fa-gavel"></i> Governing Law</h2>
+            <p>These Terms of Service are governed by and construed in accordance with the laws of Pakistan. Any disputes arising from these terms or your use of the service will be subject to the jurisdiction of Pakistani courts.</p>
+        </div>
+
+        <div class="content-card">
+            <h2><i class="fas fa-edit"></i> Changes to Terms</h2>
+            <p>We reserve the right to modify these Terms of Service at any time. Changes will be effective immediately upon posting on this page. Your continued use of the service after changes constitutes acceptance of the new terms.</p>
+            
+            <div class="info-box">
+                <h4><i class="fas fa-bell"></i> Notification of Changes</h4>
+                <p>We will make reasonable efforts to notify users of significant changes to these terms through our website or other communication methods.</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2><i class="fas fa-times-circle"></i> Termination</h2>
+            <p>We may terminate or suspend your access to the service immediately, without prior notice, for any reason, including breach of these Terms of Service.</p>
+            
+            <h3>Effect of Termination:</h3>
+            <ul>
+                <li>Your right to use the service will cease immediately</li>
+                <li>Any data stored locally on your device will remain yours</li>
+                <li>Provisions that should survive termination will remain in effect</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h2><i class="fas fa-envelope"></i> Contact Information</h2>
+            <p>If you have any questions about these Terms of Service, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> legal@healthxray.online</li>
+                <li><strong>Phone:</strong> +92 344 781 4644</li>
+                <li><strong>Address:</strong> Pakistan</li>
+            </ul>
+            
+            <div class="info-box">
+                <h4><i class="fas fa-clock"></i> Response Time</h4>
+                <p>We aim to respond to all inquiries within 48 hours during business days.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 HealthXRay. All rights reserved.</p>
+                <div>
+                    <a href="index.html">Home</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-service.html">Terms of Service</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

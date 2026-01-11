@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Calculator - Menstrual Cycle Tracker | HealthXRay</title>
+    <meta name="description" content="Free Period Calculator - Track menstrual cycle, predict next period, ovulation & fertile days. Professional period tracker with multilingual support (English, Urdu, Hindi). Private & accurate.">
+    <meta name="keywords" content="period calculator, menstrual cycle tracker, ovulation calculator, fertile days calculator, period tracker, menstrual calendar, cycle predictor, fertility calculator, women health calculator">
+    <meta name="author" content="HealthXRay">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English, Urdu, Hindi">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Period Calculator - Menstrual Cycle Tracker | HealthXRay">
+    <meta property="og:description" content="Track your menstrual cycle and predict next period, ovulation & fertile days with our professional period calculator.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://healthxray.online/periods-calculator.html">
+    <meta property="og:image" content="https://healthxray.online/images/period-calculator-og.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Period Calculator - Menstrual Cycle Tracker">
+    <meta name="twitter:description" content="Free period calculator to track menstrual cycle and predict fertile days.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://healthxray.online/periods-calculator.html">
+    
+    <!-- Alternate Language Links -->
+    <link rel="alternate" hreflang="en" href="https://healthxray.online/periods-calculator.html">
+    <link rel="alternate" hreflang="ur" href="https://healthxray.online/periods-calculator.html?lang=ur">
+    <link rel="alternate" hreflang="hi" href="https://healthxray.online/periods-calculator.html?lang=hi">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="result-actions.js"></script>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Period Calculator - HealthXRay",
+        "description": "Professional menstrual cycle tracker and period calculator to predict next period, ovulation and fertile days",
+        "url": "https://healthxray.online/periods-calculator.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Menstrual Cycle Tracking",
+            "Period Prediction",
+            "Ovulation Calculator",
+            "Fertile Days Prediction",
+            "Cycle Analysis",
+            "Multilingual Support",
+            "Privacy Protection"
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "HealthXRay",
+            "url": "https://healthxray.online"
+        }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: #333;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #e83e8c, #ff7e5f);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 5px 15px rgba(232, 62, 140, 0.3);
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-icon {
+            font-size: 36px;
+        }
+        
+        .header-content h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        .header-content p {
+            font-size: 0.9rem;
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+        }
+        
+        .back-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .calculator-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .calculator-card h2 {
+            color: #2c786c;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: #e83e8c;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.1);
+        }
+        
+        .form-group small {
+            color: #6c757d;
+            display: block;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .calculate-btn {
+            background: linear-gradient(45deg, #e83e8c, #ff7e5f);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(232, 62, 140, 0.3);
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #fff5f7, #e8f4f8);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-card h2 {
+            color: #2c786c;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .step-number {
+            background: #e83e8c;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .step-content p {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+        
+        .disclaimer {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .disclaimer i {
+            color: #856404;
+            font-size: 24px;
+        }
+        
+        .disclaimer-text {
+            color: #856404;
+        }
+        
+        .results {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        
+        .results.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .results-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .results-header h2 {
+            color: #2c786c;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .result-card {
+            background: linear-gradient(135deg, #fff5f7, #e8f4f8);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .result-card:hover {
+            border-color: #e83e8c;
+            transform: translateY(-5px);
+        }
+        
+        .result-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e83e8c;
+            margin: 15px 0;
+        }
+        
+        .result-unit {
+            color: #6c757d;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        
+        .result-desc {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .insights {
+            background: linear-gradient(135deg, #e8f4f8, #fff5f7);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .insights h3 {
+            color: #2c786c;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .insights ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .insights li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #2c3e50;
+        }
+        
+        .insights li:before {
+            content: "•";
+            color: #e83e8c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        .cycle-chart {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .cycle-chart h3 {
+            text-align: center;
+            color: #2c786c;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+        
+        .chart-timeline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px;
+            background: linear-gradient(90deg, #e8f4f8 0%, #ffebee 50%, #e8f4f8 100%);
+            border-radius: 12px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .chart-phase {
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .phase-label {
+            padding: 12px 16px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .phase-days {
+            color: #6c757d;
+            font-size: 0.85rem;
+        }
+        
+        .menstrual { background: #e83e8c; }
+        .safe { background: #28a745; }
+        .fertile { background: #ffc107; }
+        .ovulation { background: #17a2b8; }
+        
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                padding: 15px;
+            }
+            
+            .header-left {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .header-content h1 {
+                font-size: 1.4rem;
+            }
+            
+            .header-content p {
+                font-size: 0.8rem;
+            }
+            
+            .calculator-card, .info-card {
+                padding: 20px;
+            }
+            
+            .results-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            
+            .chart-timeline {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .chart-phase {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .form-group input {
+                padding: 12px 15px;
+            }
+            
+            .calculate-btn {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 8px;
+            }
+            
+            .header {
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+            
+            .header-content h1 {
+                font-size: 1.2rem;
+            }
+            
+            .header-content p {
+                font-size: 0.75rem;
+            }
+            
+            .calculator-card, .info-card {
+                padding: 15px;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .result-card {
+                padding: 15px;
+            }
+            
+            .result-value {
+                font-size: 2rem;
+            }
+            
+            .form-group input {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .calculate-btn {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+            
+            .step {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+            
+            .step-number {
+                align-self: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Professional Header -->
+        <div class="header">
+            <div class="header-left">
+                <div class="header-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="header-content">
+                    <h1 id="pageTitle">Period Calculator</h1>
+                    <p id="pageSubtitle">Professional menstrual cycle tracking and prediction</p>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div class="language-switcher" style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-globe" style="color: white; font-size: 16px;"></i>
+                    <select id="languageSelect" style="padding: 6px 10px; border: 2px solid rgba(255,255,255,0.3); border-radius: 6px; background: rgba(255,255,255,0.1); color: white; font-weight: 600; cursor: pointer; backdrop-filter: blur(10px);">
+                        <option value="en">English</option>
+                        <option value="ur">اردو</option>
+                        <option value="hi">हिंदी</option>
+                    </select>
+                </div>
+                <a href="index.html" class="back-btn" id="backBtn">
+                    <i class="fas fa-arrow-left"></i>
+                    <span id="backText">Back to Home</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Calculator Form -->
+            <div class="calculator-card">
+                <h2>
+                    <i class="fas fa-calculator"></i>
+                    <span id="calcTitle">Calculate Your Cycle</span>
+                </h2>
+                
+                <form id="periodsForm">
+                    <div class="form-group">
+                        <label for="lastPeriod" id="lastPeriodLabel">Last Period Start Date</label>
+                        <input type="date" id="lastPeriod" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cycleLength" id="cycleLengthLabel">Cycle Length (days)</label>
+                        <input type="number" id="cycleLength" min="20" max="45" value="28" required>
+                        <small id="cycleLengthHelp">Average cycle is 28 days (range: 21-35 days)</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="periodLength" id="periodLengthLabel">Period Duration (days)</label>
+                        <input type="number" id="periodLength" min="2" max="10" value="5" required>
+                        <small id="periodLengthHelp">Average period lasts 3-7 days</small>
+                    </div>
+                    
+                    <button type="submit" class="calculate-btn">
+                        <i class="fas fa-calculator"></i>
+                        <span id="calculateBtnText">Calculate My Cycle</span>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Information Panel -->
+            <div class="info-card">
+                <h2>
+                    <i class="fas fa-info-circle"></i>
+                    <span id="howItWorksTitle">How It Works</span>
+                </h2>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 id="step1Title">Enter Your Last Period Date</h3>
+                        <p id="step1Desc">Select the first day of your most recent menstrual period to start tracking your cycle.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 id="step2Title">Set Your Cycle Length</h3>
+                        <p id="step2Desc">Most women have cycles between 21-35 days. The average is 28 days, but yours may be different.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 id="step3Title">Get Accurate Predictions</h3>
+                        <p id="step3Desc">Receive predictions for your next period, fertile window, ovulation date, and safe days.</p>
+                    </div>
+                </div>
+                
+                <div class="disclaimer">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div class="disclaimer-text">
+                        <strong id="disclaimerTitle">Medical Disclaimer:</strong> <span id="disclaimerText">This tool provides estimates only. Always consult with a healthcare provider for medical advice and concerns.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Educational Content Section -->
+        <div style="background: white; border-radius: 12px; padding: 20px; margin: 20px 0; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+            <h2 style="color: #2c786c; text-align: center; margin-bottom: 20px; font-size: 1.5rem;">
+                <i class="fas fa-graduation-cap"></i> Understanding Your Menstrual Cycle
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                <!-- Cycle Phases -->
+                <div style="background: linear-gradient(135deg, #fff5f7, #e8f4f8); padding: 15px; border-radius: 8px; border-left: 4px solid #e83e8c;">
+                    <h3 style="color: #2c786c; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-size: 1rem;">
+                        <i class="fas fa-circle" style="color: #e83e8c; font-size: 0.8rem;"></i> Menstrual Phase (Days 1-5)
+                    </h3>
+                    <p style="color: #2c3e50; line-height: 1.4; font-size: 0.85rem; margin-bottom: 8px;">The lining of the uterus sheds, resulting in menstrual bleeding.</p>
+                    <ul style="margin: 0; color: #6c757d; padding-left: 15px; font-size: 0.8rem;">
+                        <li>Duration: 3-7 days typically</li>
+                        <li>Hormone levels are lowest</li>
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #e8f5e8, #f0f8f0); padding: 15px; border-radius: 8px; border-left: 4px solid #28a745;">
+                    <h3 style="color: #2c786c; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-size: 1rem;">
+                        <i class="fas fa-circle" style="color: #28a745; font-size: 0.8rem;"></i> Follicular Phase (Days 1-13)
+                    </h3>
+                    <p style="color: #2c3e50; line-height: 1.4; font-size: 0.85rem; margin-bottom: 8px;">FSH stimulates ovaries to prepare an egg. Estrogen levels rise.</p>
+                    <ul style="margin: 0; color: #6c757d; padding-left: 15px; font-size: 0.8rem;">
+                        <li>Overlaps with menstrual phase</li>
+                        <li>Energy levels increase</li>
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #fff8e1, #fffbf0); padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107;">
+                    <h3 style="color: #2c786c; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-size: 1rem;">
+                        <i class="fas fa-circle" style="color: #ffc107; font-size: 0.8rem;"></i> Ovulation (Day 14)
+                    </h3>
+                    <p style="color: #2c3e50; line-height: 1.4; font-size: 0.85rem; margin-bottom: 8px;">Mature egg is released. Most fertile time of cycle.</p>
+                    <ul style="margin: 0; color: #6c757d; padding-left: 15px; font-size: 0.8rem;">
+                        <li>Around day 14 of 28-day cycle</li>
+                        <li>Clear cervical mucus</li>
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #e3f2fd, #f0f8ff); padding: 15px; border-radius: 8px; border-left: 4px solid #17a2b8;">
+                    <h3 style="color: #2c786c; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-size: 1rem;">
+                        <i class="fas fa-circle" style="color: #17a2b8; font-size: 0.8rem;"></i> Luteal Phase (Days 15-28)
+                    </h3>
+                    <p style="color: #2c3e50; line-height: 1.4; font-size: 0.85rem; margin-bottom: 8px;">Progesterone rises to prepare uterus for pregnancy.</p>
+                    <ul style="margin: 0; color: #6c757d; padding-left: 15px; font-size: 0.8rem;">
+                        <li>Lasts about 14 days</li>
+                        <li>May experience PMS symptoms</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Fertility and Conception -->
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 12px; margin-bottom: 30px;">
+                <h3 style="color: #2c786c; margin-bottom: 20px; text-align: center;">
+                    <i class="fas fa-heart"></i> Fertility Window & Conception
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="background: #e83e8c; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 24px;">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h4 style="color: #2c3e50; margin-bottom: 10px;">Fertile Window</h4>
+                        <p style="color: #6c757d; font-size: 0.9rem;">The 6-day period ending on ovulation day when pregnancy is most likely to occur.</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="background: #ffc107; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 24px;">
+                            <i class="fas fa-egg"></i>
+                        </div>
+                        <h4 style="color: #2c3e50; margin-bottom: 10px;">Ovulation Day</h4>
+                        <p style="color: #6c757d; font-size: 0.9rem;">The day when the egg is released. Highest chance of conception within 24 hours.</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="background: #28a745; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 24px;">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 style="color: #2c3e50; margin-bottom: 10px;">Safe Period</h4>
+                        <p style="color: #6c757d; font-size: 0.9rem;">Days when pregnancy is less likely, but not guaranteed safe for contraception.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Health Tips -->
+            <div style="background: linear-gradient(135deg, #fff5f7, #e8f4f8); padding: 20px; border-radius: 8px; margin: 15px 0;">
+                <h3 style="color: #2c786c; margin-bottom: 15px; text-align: center; font-size: 1.2rem;">
+                    <i class="fas fa-heartbeat"></i> Menstrual Health Tips
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div>
+                        <h4 style="color: #e83e8c; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;">
+                            <i class="fas fa-utensils"></i> Nutrition
+                        </h4>
+                        <ul style="color: #2c3e50; line-height: 1.4; padding-left: 15px; font-size: 0.8rem;">
+                            <li>Eat iron-rich foods</li>
+                            <li>Include calcium & magnesium</li>
+                            <li>Stay hydrated</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #e83e8c; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;">
+                            <i class="fas fa-dumbbell"></i> Exercise
+                        </h4>
+                        <ul style="color: #2c3e50; line-height: 1.4; padding-left: 15px; font-size: 0.8rem;">
+                            <li>Light exercise reduces cramps</li>
+                            <li>Yoga helps with pain</li>
+                            <li>Regular activity regulates cycles</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #e83e8c; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;">
+                            <i class="fas fa-bed"></i> Self-Care
+                        </h4>
+                        <ul style="color: #2c3e50; line-height: 1.4; padding-left: 15px; font-size: 0.8rem;">
+                            <li>Get adequate sleep</li>
+                            <li>Use heat therapy</li>
+                            <li>Practice stress management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- When to See a Doctor -->
+            <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; border-radius: 6px;">
+                <h3 style="color: #856404; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-size: 1rem;">
+                    <i class="fas fa-user-md"></i> When to Consult a Healthcare Provider
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                    <div>
+                        <h5 style="color: #856404; margin-bottom: 5px; font-size: 0.85rem;">Irregular Cycles:</h5>
+                        <p style="color: #856404; font-size: 0.75rem;">Cycles shorter than 21 or longer than 35 days</p>
+                    </div>
+                    <div>
+                        <h5 style="color: #856404; margin-bottom: 5px; font-size: 0.85rem;">Heavy Bleeding:</h5>
+                        <p style="color: #856404; font-size: 0.75rem;">Changing pads/tampons every hour</p>
+                    </div>
+                    <div>
+                        <h5 style="color: #856404; margin-bottom: 5px; font-size: 0.85rem;">Severe Pain:</h5>
+                        <p style="color: #856404; font-size: 0.75rem;">Pain interfering with daily activities</p>
+                    </div>
+                    <div>
+                        <h5 style="color: #856404; margin-bottom: 5px; font-size: 0.85rem;">Missed Periods:</h5>
+                        <p style="color: #856404; font-size: 0.75rem;">Missing periods for 3+ months</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div id="periodsResults" class="results">
+            <!-- Results will be populated here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Language system
+        let currentLanguage = 'en';
+        
+        const translations = {
+            en: {
+                pageTitle: "Period Calculator",
+                pageSubtitle: "Professional menstrual cycle tracking and prediction",
+                backText: "Back to Home",
+                calcTitle: "Calculate Your Cycle",
+                lastPeriodLabel: "Last Period Start Date",
+                cycleLengthLabel: "Cycle Length (days)",
+                cycleLengthHelp: "Average cycle is 28 days (range: 21-35 days)",
+                periodLengthLabel: "Period Duration (days)",
+                calculateBtnText: "Calculate My Cycle",
+                howItWorksTitle: "How It Works",
+                step1Title: "Enter Your Last Period Date",
+                step1Desc: "Select the first day of your most recent menstrual period to start tracking your cycle.",
+                step2Title: "Set Your Cycle Length",
+                step2Desc: "Most women have cycles between 21-35 days. The average is 28 days, but yours may be different.",
+                step3Title: "Get Accurate Predictions",
+                step3Desc: "Receive predictions for your next period, fertile window, ovulation date, and safe days.",
+                disclaimerTitle: "Medical Disclaimer:",
+                disclaimerText: "This tool provides estimates only. Always consult with a healthcare provider for medical advice and concerns.",
+                educationTitle: "Understanding Your Menstrual Cycle",
+                menstrualPhase: "Menstrual Phase (Days 1-5)",
+                menstrualDesc: "The lining of the uterus sheds, resulting in menstrual bleeding.",
+                follicularPhase: "Follicular Phase (Days 1-13)",
+                follicularDesc: "FSH stimulates ovaries to prepare an egg. Estrogen levels rise.",
+                ovulationPhase: "Ovulation (Day 14)",
+                ovulationDesc: "Mature egg is released. Most fertile time of cycle.",
+                lutealPhase: "Luteal Phase (Days 15-28)",
+                lutealDesc: "Progesterone rises to prepare uterus for pregnancy.",
+                healthTipsTitle: "Menstrual Health Tips",
+                nutritionTitle: "Nutrition",
+                exerciseTitle: "Exercise",
+                selfCareTitle: "Self-Care",
+                doctorTitle: "When to Consult a Healthcare Provider",
+                fertilityTitle: "Fertility Window & Conception",
+                fertileWindowTitle: "Fertile Window",
+                fertileWindowDesc: "The 6-day period ending on ovulation day when pregnancy is most likely to occur.",
+                ovulationDayTitle: "Ovulation Day",
+                ovulationDayDesc: "The day when the egg is released. Highest chance of conception within 24 hours.",
+                safePeriodTitle: "Safe Period",
+                safePeriodDesc: "Days when pregnancy is less likely, but not guaranteed safe for contraception.",
+                irregularCycles: "Irregular Cycles:",
+                irregularCyclesDesc: "Cycles shorter than 21 or longer than 35 days",
+                heavyBleeding: "Heavy Bleeding:",
+                heavyBleedingDesc: "Changing pads/tampons every hour",
+                severePain: "Severe Pain:",
+                severePainDesc: "Pain interfering with daily activities",
+                missedPeriods: "Missed Periods:",
+                missedPeriodsDesc: "Missing periods for 3+ months",
+                nutritionTips: ["Eat iron-rich foods", "Include calcium & magnesium", "Stay hydrated"],
+                exerciseTips: ["Light exercise reduces cramps", "Yoga helps with pain", "Regular activity regulates cycles"],
+                selfCareTips: ["Get adequate sleep", "Use heat therapy", "Practice stress management"]
+            },
+            ur: {
+                pageTitle: "ماہواری کیلکولیٹر",
+                pageSubtitle: "پیشہ ورانہ ماہواری سائیکل ٹریکنگ اور پیشن گوئی",
+                backText: "واپس ہوم",
+                calcTitle: "اپنا سائیکل کیلکولیٹ کریں",
+                lastPeriodLabel: "آخری ماہواری کی شروعاتی تاریخ",
+                cycleLengthLabel: "سائیکل کی لمبائی (دن)",
+                cycleLengthHelp: "اوسط سائیکل 28 دن کا ہے (رینج: 21-35 دن)",
+                periodLengthLabel: "ماہواری کی مدت (دن)",
+                calculateBtnText: "میرا سائیکل کیلکولیٹ کریں",
+                howItWorksTitle: "یہ کیسے کام کرتا ہے",
+                step1Title: "اپنی آخری ماہواری کی تاریخ درج کریں",
+                step1Desc: "اپنے سائیکل کو ٹریک کرنے کے لیے اپنی حالیہ ماہواری کا پہلا دن منتخب کریں۔",
+                step2Title: "اپنے سائیکل کی لمبائی سیٹ کریں",
+                step2Desc: "زیادہ تر خواتین کا سائیکل 21-35 دنوں کے درمیان ہوتا ہے۔ اوسط 28 دن ہے۔",
+                step3Title: "درست پیشن گوئیاں حاصل کریں",
+                step3Desc: "اپنی اگلی ماہواری، زرخیز دورانیہ، اور محفوظ دنوں کی پیشن گوئی حاصل کریں۔",
+                disclaimerTitle: "طبی اعلان:",
+                disclaimerText: "یہ ٹول صرف تخمینہ فراہم کرتا ہے۔ طبی مشورے کے لیے ہمیشہ ڈاکٹر سے رجوع کریں۔",
+                educationTitle: "اپنے ماہواری سائیکل کو سمجھیں",
+                menstrualPhase: "ماہواری کا مرحلہ (دن 1-5)",
+                menstrualDesc: "بچہ دانی کی استر خارج ہوتی ہے، جس سے ماہواری ہوتی ہے۔",
+                follicularPhase: "فولیکولر مرحلہ (دن 1-13)",
+                follicularDesc: "FSH بیضہ دانی کو انڈا تیار کرنے کے لیے متحرک کرتا ہے۔",
+                ovulationPhase: "بیضہ ریزی (دن 14)",
+                ovulationDesc: "پختہ انڈا خارج ہوتا ہے۔ سائیکل کا سب سے زرخیز وقت۔",
+                lutealPhase: "لیوٹل مرحلہ (دن 15-28)",
+                lutealDesc: "پروجیسٹرون بڑھتا ہے تاکہ بچہ دانی حمل کے لیے تیار ہو۔",
+                healthTipsTitle: "ماہواری کی صحت کے نکات",
+                nutritionTitle: "غذائیت",
+                exerciseTitle: "ورزش",
+                selfCareTitle: "خود کی دیکھ بھال",
+                doctorTitle: "کب ڈاکٹر سے رجوع کریں",
+                fertilityTitle: "زرخیزی کی مدت اور حمل",
+                fertileWindowTitle: "زرخیز دورانیہ",
+                fertileWindowDesc: "6 دن کا دورانیہ جو بیضہ ریزی کے دن ختم ہوتا ہے جب حمل کے امکانات سب سے زیادہ ہوتے ہیں۔",
+                ovulationDayTitle: "بیضہ ریزی کا دن",
+                ovulationDayDesc: "وہ دن جب انڈا خارج ہوتا ہے۔ 24 گھنٹوں میں حمل کے سب سے زیادہ امکانات۔",
+                safePeriodTitle: "محفوظ دورانیہ",
+                safePeriodDesc: "وہ دن جب حمل کے امکانات کم ہوتے ہیں، لیکن مانع حمل کے لیے مکمل محفوظ نہیں۔",
+                irregularCycles: "بے قاعدہ سائیکل:",
+                irregularCyclesDesc: "21 دن سے کم یا 35 دن سے زیادہ سائیکل",
+                heavyBleeding: "زیادہ خون بہنا:",
+                heavyBleedingDesc: "ہر گھنٹے پیڈ/ٹیمپون تبدیل کرنا",
+                severePain: "شدید درد:",
+                severePainDesc: "درد جو روزمرہ کی سرگرمیوں میں مداخلت کرے",
+                missedPeriods: "چھوٹے ہوئے ماہواری:",
+                missedPeriodsDesc: "3+ مہینوں تک ماہواری نہ آنا",
+                nutritionTips: ["آئرن سے بھرپور غذا کھائیں", "کیلشیم اور میگنیشیم شامل کریں", "پانی پیتے رہیں"],
+                exerciseTips: ["ہلکی ورزش درد کم کرتی ہے", "یوگا درد میں مدد کرتا ہے", "باقاعدہ سرگرمی سائیکل کو منظم کرتی ہے"],
+                selfCareTips: ["مناسب نیند لیں", "گرمی کا علاج استعمال کریں", "تناؤ کا انتظام کریں"]
+            },
+            hi: {
+                pageTitle: "पीरियड कैलकुलेटर",
+                pageSubtitle: "पेशेवर मासिक धर्म चक्र ट्रैकिंग और भविष्यवाणी",
+                backText: "होम पर वापस",
+                calcTitle: "अपना चक्र कैलकुलेट करें",
+                lastPeriodLabel: "अंतिम पीरियड की शुरुआती तारीख",
+                cycleLengthLabel: "चक्र की लंबाई (दिन)",
+                cycleLengthHelp: "औसत चक्र 28 दिन का है (रेंज: 21-35 दिन)",
+                periodLengthLabel: "पीरियड की अवधि (दिन)",
+                calculateBtnText: "मेरा चक्र कैलकुलेट करें",
+                howItWorksTitle: "यह कैसे काम करता है",
+                step1Title: "अपनी अंतिम पीरियड की तारीख दर्ज करें",
+                step1Desc: "अपने चक्र को ट्रैक करने के लिए अपने हाल के मासिक धर्म का पहला दिन चुनें।",
+                step2Title: "अपने चक्र की लंबाई सेट करें",
+                step2Desc: "अधिकांश महिलाओं का चक्र 21-35 दिनों के बीच होता है। औसत 28 दिन है।",
+                step3Title: "सटीक भविष्यवाणियां प्राप्त करें",
+                step3Desc: "अपने अगले पीरियड, उपजाऊ अवधि और सुरक्षित दिनों की भविष्यवाणी प्राप्त करें।",
+                disclaimerTitle: "चिकित्सा अस्वीकरण:",
+                disclaimerText: "यह उपकरण केवल अनुमान प्रदान करता है। चिकित्सा सलाह के लिए हमेशा डॉक्टर से सलाह लें।",
+                educationTitle: "अपने मासिक धर्म चक्र को समझें",
+                menstrualPhase: "मासिक धर्म चरण (दिन 1-5)",
+                menstrualDesc: "गर्भाशय की परत निकलती है, जिससे मासिक धर्म होता है।",
+                follicularPhase: "फॉलिक्यूलर चरण (दिन 1-13)",
+                follicularDesc: "FSH अंडाशय को अंडा तैयार करने के लिए प्रेरित करता है।",
+                ovulationPhase: "ओव्यूलेशन (दिन 14)",
+                ovulationDesc: "परिपक्व अंडा निकलता है। चक्र का सबसे उपजाऊ समय।",
+                lutealPhase: "ल्यूटल चरण (दिन 15-28)",
+                lutealDesc: "प्रोजेस्टेरोन बढ़ता है ताकि गर्भाशय गर्भावस्था के लिए तैयार हो।",
+                healthTipsTitle: "मासिक धर्म स्वास्थ्य सुझाव",
+                nutritionTitle: "पोषण",
+                exerciseTitle: "व्यायाम",
+                selfCareTitle: "स्व-देखभाल",
+                doctorTitle: "डॉक्टर से कब सलाह लें",
+                fertilityTitle: "प्रजनन क्षमता और गर्भाधान",
+                fertileWindowTitle: "उपजाऊ अवधि",
+                fertileWindowDesc: "6-दिन की अवधि जो ओव्यूलेशन के दिन समाप्त होती है जब गर्भावस्था की सबसे अधिक संभावना होती है।",
+                ovulationDayTitle: "ओव्यूलेशन दिवस",
+                ovulationDayDesc: "वह दिन जब अंडा निकलता है। 24 घंटों के भीतर गर्भाधान की सबसे अधिक संभावना।",
+                safePeriodTitle: "सुरक्षित अवधि",
+                safePeriodDesc: "वे दिन जब गर्भावस्था की संभावना कम होती है, लेकिन गर्भनिरोधक के लिए गारंटीशुदा सुरक्षित नहीं।",
+                irregularCycles: "अनियमित चक्र:",
+                irregularCyclesDesc: "21 दिन से कम या 35 दिन से अधिक चक्र",
+                heavyBleeding: "भारी रक्तस्राव:",
+                heavyBleedingDesc: "हर घंटे पैड/टैम्पोन बदलना",
+                severePain: "गंभीर दर्द:",
+                severePainDesc: "दैनिक गतिविधियों में हस्तक्षेप करने वाला दर्द",
+                missedPeriods: "छूटे हुए पीरियड:",
+                missedPeriodsDesc: "3+ महीनों तक पीरियड न आना",
+                nutritionTips: ["आयरन युक्त भोजन खाएं", "कैल्शियम और मैग्नीशियम शामिल करें", "हाइड्रेटेड रहें"],
+                exerciseTips: ["हल्का व्यायाम ऐंठन कम करता है", "योग दर्द में मदद करता है", "नियमित गतिविधि चक्र को नियंत्रित करती है"],
+                selfCareTips: ["पर्याप्त नींद लें", "हीट थेरेपी का उपयोग करें", "तनाव प्रबंधन का अभ्यास करें"]
+            }
+        };
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadLanguageFromStorage();
+            updateLanguage();
+            setupEventListeners();
+            
+            // Set today's date as default
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('lastPeriod').value = today;
+        });
+        
+        function setupEventListeners() {
+            // Language switcher
+            document.getElementById('languageSelect').addEventListener('change', function(e) {
+                currentLanguage = e.target.value;
+                localStorage.setItem('healthxray-language', currentLanguage);
+                updateLanguage();
+            });
+            
+            // Form submission
+            document.getElementById('periodsForm').addEventListener('submit', calculatePeriods);
+        }
+        
+        function loadLanguageFromStorage() {
+            const savedLanguage = localStorage.getItem('healthxray-language');
+            if (savedLanguage && translations[savedLanguage]) {
+                currentLanguage = savedLanguage;
+                document.getElementById('languageSelect').value = currentLanguage;
+            }
+        }
+        
+        function updateLanguage() {
+            const t = translations[currentLanguage];
+            
+            // Update page elements
+            document.getElementById('pageTitle').textContent = t.pageTitle;
+            document.getElementById('pageSubtitle').textContent = t.pageSubtitle;
+            document.getElementById('backText').textContent = t.backText;
+            
+            // Update form elements
+            const calcTitle = document.querySelector('#calcTitle');
+            if (calcTitle) calcTitle.textContent = t.calcTitle;
+            
+            const lastPeriodLabel = document.querySelector('#lastPeriodLabel');
+            if (lastPeriodLabel) lastPeriodLabel.textContent = t.lastPeriodLabel;
+            
+            const cycleLengthLabel = document.querySelector('#cycleLengthLabel');
+            if (cycleLengthLabel) cycleLengthLabel.textContent = t.cycleLengthLabel;
+            
+            const cycleLengthHelp = document.querySelector('#cycleLengthHelp');
+            if (cycleLengthHelp) cycleLengthHelp.textContent = t.cycleLengthHelp;
+            
+            const periodLengthLabel = document.querySelector('#periodLengthLabel');
+            if (periodLengthLabel) periodLengthLabel.textContent = t.periodLengthLabel;
+            
+            const calculateBtnText = document.querySelector('#calculateBtnText');
+            if (calculateBtnText) calculateBtnText.textContent = t.calculateBtnText;
+            
+            // Update info section
+            const howItWorksTitle = document.querySelector('#howItWorksTitle');
+            if (howItWorksTitle) howItWorksTitle.textContent = t.howItWorksTitle;
+            
+            const step1Title = document.querySelector('#step1Title');
+            if (step1Title) step1Title.textContent = t.step1Title;
+            
+            const step1Desc = document.querySelector('#step1Desc');
+            if (step1Desc) step1Desc.textContent = t.step1Desc;
+            
+            const step2Title = document.querySelector('#step2Title');
+            if (step2Title) step2Title.textContent = t.step2Title;
+            
+            const step2Desc = document.querySelector('#step2Desc');
+            if (step2Desc) step2Desc.textContent = t.step2Desc;
+            
+            const step3Title = document.querySelector('#step3Title');
+            if (step3Title) step3Title.textContent = t.step3Title;
+            
+            const step3Desc = document.querySelector('#step3Desc');
+            if (step3Desc) step3Desc.textContent = t.step3Desc;
+            
+            const disclaimerTitle = document.querySelector('#disclaimerTitle');
+            if (disclaimerTitle) disclaimerTitle.textContent = t.disclaimerTitle;
+            
+            const disclaimerText = document.querySelector('#disclaimerText');
+            if (disclaimerText) disclaimerText.textContent = t.disclaimerText;
+            
+            // Update educational content
+            updateEducationalContent(t);
+            
+            // Set document language
+            document.documentElement.lang = currentLanguage;
+            document.title = t.pageTitle + ' - HealthXRay';
+        }
+        
+        function updateEducationalContent(t) {
+            // Update education section titles and content
+            const educationTitle = document.querySelector('h2:has(i.fa-graduation-cap)');
+            if (educationTitle) {
+                educationTitle.innerHTML = `<i class="fas fa-graduation-cap"></i> ${t.educationTitle}`;
+            }
+            
+            // Update phase descriptions
+            const phases = document.querySelectorAll('[style*="border-left"] h3');
+            const phaseDescs = document.querySelectorAll('[style*="border-left"] p');
+            
+            if (phases.length >= 4) {
+                phases[0].innerHTML = `<i class="fas fa-circle" style="color: #e83e8c; font-size: 0.8rem;"></i> ${t.menstrualPhase}`;
+                phases[1].innerHTML = `<i class="fas fa-circle" style="color: #28a745; font-size: 0.8rem;"></i> ${t.follicularPhase}`;
+                phases[2].innerHTML = `<i class="fas fa-circle" style="color: #ffc107; font-size: 0.8rem;"></i> ${t.ovulationPhase}`;
+                phases[3].innerHTML = `<i class="fas fa-circle" style="color: #17a2b8; font-size: 0.8rem;"></i> ${t.lutealPhase}`;
+            }
+            
+            if (phaseDescs.length >= 4) {
+                phaseDescs[0].textContent = t.menstrualDesc;
+                phaseDescs[1].textContent = t.follicularDesc;
+                phaseDescs[2].textContent = t.ovulationDesc;
+                phaseDescs[3].textContent = t.lutealDesc;
+            }
+            
+            // Update fertility section
+            const fertilityTitle = document.querySelector('h3:has(i.fa-heart)');
+            if (fertilityTitle) {
+                fertilityTitle.innerHTML = `<i class="fas fa-heart"></i> ${t.fertilityTitle || 'Fertility Window & Conception'}`;
+            }
+            
+            const fertilityCards = document.querySelectorAll('[style*="text-align: center; padding: 20px;"] h4');
+            if (fertilityCards.length >= 3) {
+                fertilityCards[0].textContent = t.fertileWindowTitle || 'Fertile Window';
+                fertilityCards[1].textContent = t.ovulationDayTitle || 'Ovulation Day';
+                fertilityCards[2].textContent = t.safePeriodTitle || 'Safe Period';
+            }
+            
+            const fertilityDescs = document.querySelectorAll('[style*="text-align: center; padding: 20px;"] p');
+            if (fertilityDescs.length >= 3) {
+                fertilityDescs[0].textContent = t.fertileWindowDesc || 'The 6-day period ending on ovulation day when pregnancy is most likely to occur.';
+                fertilityDescs[1].textContent = t.ovulationDayDesc || 'The day when the egg is released. Highest chance of conception within 24 hours.';
+                fertilityDescs[2].textContent = t.safePeriodDesc || 'Days when pregnancy is less likely, but not guaranteed safe for contraception.';
+            }
+            
+            // Update health tips section
+            const healthTipsTitle = document.querySelector('h3:has(i.fa-heartbeat)');
+            if (healthTipsTitle) {
+                healthTipsTitle.innerHTML = `<i class="fas fa-heartbeat"></i> ${t.healthTipsTitle}`;
+            }
+            
+            const tipTitles = document.querySelectorAll('h4:has(i.fa-utensils), h4:has(i.fa-dumbbell), h4:has(i.fa-bed)');
+            if (tipTitles.length >= 3) {
+                tipTitles[0].innerHTML = `<i class="fas fa-utensils"></i> ${t.nutritionTitle}`;
+                tipTitles[1].innerHTML = `<i class="fas fa-dumbbell"></i> ${t.exerciseTitle}`;
+                tipTitles[2].innerHTML = `<i class="fas fa-bed"></i> ${t.selfCareTitle}`;
+            }
+            
+            // Update health tips lists
+            const tipLists = document.querySelectorAll('[style*="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))"] ul');
+            if (tipLists.length >= 3 && t.nutritionTips && t.exerciseTips && t.selfCareTips) {
+                // Nutrition tips
+                if (tipLists[0]) {
+                    tipLists[0].innerHTML = t.nutritionTips.map(tip => `<li>${tip}</li>`).join('');
+                }
+                // Exercise tips
+                if (tipLists[1]) {
+                    tipLists[1].innerHTML = t.exerciseTips.map(tip => `<li>${tip}</li>`).join('');
+                }
+                // Self-care tips
+                if (tipLists[2]) {
+                    tipLists[2].innerHTML = t.selfCareTips.map(tip => `<li>${tip}</li>`).join('');
+                }
+            }
+            
+            // Update doctor consultation section
+            const doctorTitle = document.querySelector('h3:has(i.fa-user-md)');
+            if (doctorTitle) {
+                doctorTitle.innerHTML = `<i class="fas fa-user-md"></i> ${t.doctorTitle}`;
+            }
+            
+            // Update doctor consultation items
+            const doctorItems = document.querySelectorAll('[style*="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr))"] h5');
+            if (doctorItems.length >= 4) {
+                doctorItems[0].textContent = t.irregularCycles || 'Irregular Cycles:';
+                doctorItems[1].textContent = t.heavyBleeding || 'Heavy Bleeding:';
+                doctorItems[2].textContent = t.severePain || 'Severe Pain:';
+                doctorItems[3].textContent = t.missedPeriods || 'Missed Periods:';
+            }
+            
+            const doctorDescs = document.querySelectorAll('[style*="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr))"] p');
+            if (doctorDescs.length >= 4) {
+                doctorDescs[0].textContent = t.irregularCyclesDesc || 'Cycles shorter than 21 or longer than 35 days';
+                doctorDescs[1].textContent = t.heavyBleedingDesc || 'Changing pads/tampons every hour';
+                doctorDescs[2].textContent = t.severePainDesc || 'Pain interfering with daily activities';
+                doctorDescs[3].textContent = t.missedPeriodsDesc || 'Missing periods for 3+ months';
+            }
+        }
+
+        function calculatePeriods(e) {
+            e.preventDefault();
+            
+            const lastPeriod = new Date(document.getElementById('lastPeriod').value);
+            const cycleLength = parseInt(document.getElementById('cycleLength').value);
+            const periodLength = parseInt(document.getElementById('periodLength').value);
+            
+            // Calculate next period date
+            const nextPeriod = new Date(lastPeriod);
+            nextPeriod.setDate(nextPeriod.getDate() + cycleLength);
+            
+            // Calculate ovulation date (approx 14 days before next period)
+            const ovulationDate = new Date(nextPeriod);
+            ovulationDate.setDate(ovulationDate.getDate() - 14);
+            
+            // Calculate fertile window (5 days before ovulation + ovulation day)
+            const fertileStart = new Date(ovulationDate);
+            fertileStart.setDate(fertileStart.getDate() - 5);
+            
+            const fertileEnd = new Date(ovulationDate);
+            fertileEnd.setDate(fertileEnd.getDate() + 1);
+            
+            // Calculate days until next period
+            const today = new Date();
+            const daysUntilPeriod = Math.ceil((nextPeriod - today) / (1000 * 60 * 60 * 24));
+            
+            // Calculate current cycle day
+            const daysSinceLastPeriod = Math.floor((today - lastPeriod) / (1000 * 60 * 60 * 24));
+            const currentCycleDay = daysSinceLastPeriod + 1;
+            
+            // Format dates
+            const formatDate = (date) => {
+                return date.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            };
+            
+            const formatShortDate = (date) => {
+                return date.toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric'
+                });
+            };
+            
+            // Display results
+            const resultsDiv = document.getElementById('periodsResults');
+            resultsDiv.innerHTML = `
+                <div class="results-header">
+                    <h2>Your Menstrual Cycle Analysis</h2>
+                    <p>Based on your cycle information, here are your personalized predictions</p>
+                </div>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Next Period</h3>
+                        <div class="result-value">${nextPeriod.getDate()}</div>
+                        <div class="result-unit">${formatShortDate(nextPeriod)}</div>
+                        <div class="result-desc">${daysUntilPeriod > 0 ? `In ${daysUntilPeriod} days` : 'Today or overdue'}</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Current Cycle Day</h3>
+                        <div class="result-value">${currentCycleDay}</div>
+                        <div class="result-unit">Day ${currentCycleDay} of ${cycleLength}</div>
+                        <div class="result-desc">Current position in cycle</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Ovulation Date</h3>
+                        <div class="result-value">${ovulationDate.getDate()}</div>
+                        <div class="result-unit">${formatShortDate(ovulationDate)}</div>
+                        <div class="result-desc">Most fertile day</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Fertile Window</h3>
+                        <div class="result-value">${fertileStart.getDate()}-${fertileEnd.getDate()}</div>
+                        <div class="result-unit">${formatShortDate(fertileStart)} to ${formatShortDate(fertileEnd)}</div>
+                        <div class="result-desc">High pregnancy chance</div>
+                    </div>
+                </div>
+                
+                <div class="insights">
+                    <h3><i class="fas fa-lightbulb"></i> Important Information</h3>
+                    <ul>
+                        <li>Menstrual cycles typically range from 21 to 35 days, with 28 days being average</li>
+                        <li>Ovulation usually occurs 12-16 days before your next period</li>
+                        <li>The fertile window includes the 5 days before ovulation plus the ovulation day</li>
+                        <li>Period length normally ranges from 3 to 7 days</li>
+                        <li>Track your cycle for 3-6 months to identify your personal pattern</li>
+                        <li>Stress, illness, and lifestyle changes can affect your cycle timing</li>
+                    </ul>
+                </div>
+                
+                <div class="cycle-chart">
+                    <h3>Your Menstrual Cycle Timeline</h3>
+                    <div class="chart-timeline">
+                        <div class="chart-phase">
+                            <div class="phase-label menstrual">Menstrual</div>
+                            <div class="phase-days">Days 1-${periodLength}</div>
+                        </div>
+                        <div class="chart-phase">
+                            <div class="phase-label safe">Follicular</div>
+                            <div class="phase-days">Days ${periodLength + 1}-${cycleLength - 16}</div>
+                        </div>
+                        <div class="chart-phase">
+                            <div class="phase-label fertile">Fertile Window</div>
+                            <div class="phase-days">Days ${cycleLength - 15}-${cycleLength - 13}</div>
+                        </div>
+                        <div class="chart-phase">
+                            <div class="phase-label ovulation">Ovulation</div>
+                            <div class="phase-days">Day ${cycleLength - 14}</div>
+                        </div>
+                        <div class="chart-phase">
+                            <div class="phase-label safe">Luteal</div>
+                            <div class="phase-days">Days ${cycleLength - 13}-${cycleLength}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add professional action buttons for PDF, print, and share
+            const resultData = {
+                nextPeriod: formatDate(nextPeriod),
+                currentCycleDay,
+                cycleLength,
+                ovulationDate: formatDate(ovulationDate),
+                fertileWindow: `${formatDate(fertileStart)} to ${formatDate(fertileEnd)}`,
+                daysUntilPeriod,
+                periodLength,
+                lastPeriodDate: formatDate(lastPeriod),
+                patientInfo: {
+                    lastPeriod: formatDate(lastPeriod),
+                    cycleLength: `${cycleLength} days`,
+                    periodLength: `${periodLength} days`,
+                    calculationDate: formatDate(new Date())
+                }
+            };
+            
+            // Add action buttons using result-actions.js
+            if (typeof resultActions !== 'undefined') {
+                resultActions.addActionButtons(resultsDiv, resultData, 'periods');
+            }
+            
+            resultsDiv.classList.add('active');
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

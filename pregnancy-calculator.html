@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregnancy Calculator - Due Date Calculator | HealthXRay</title>
+    <meta name="description" content="Free Pregnancy Calculator - Calculate due date, pregnancy weeks & trimesters. Professional pregnancy tracker with development milestones. Multilingual support (English, Urdu, Hindi). Accurate & private.">
+    <meta name="keywords" content="pregnancy calculator, due date calculator, pregnancy tracker, pregnancy weeks calculator, trimester calculator, pregnancy milestones, conception calculator, pregnancy development, maternity calculator">
+    <meta name="author" content="HealthXRay">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English, Urdu, Hindi">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Pregnancy Calculator - Due Date Calculator | HealthXRay">
+    <meta property="og:description" content="Calculate your due date and track pregnancy weeks with our professional pregnancy calculator. Get development milestones and trimester information.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://healthxray.online/pregnancy-calculator.html">
+    <meta property="og:image" content="https://healthxray.online/images/pregnancy-calculator-og.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pregnancy Calculator - Due Date Calculator">
+    <meta name="twitter:description" content="Free pregnancy calculator to track due date and pregnancy development milestones.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://healthxray.online/pregnancy-calculator.html">
+    
+    <!-- Alternate Language Links -->
+    <link rel="alternate" hreflang="en" href="https://healthxray.online/pregnancy-calculator.html">
+    <link rel="alternate" hreflang="ur" href="https://healthxray.online/pregnancy-calculator.html?lang=ur">
+    <link rel="alternate" hreflang="hi" href="https://healthxray.online/pregnancy-calculator.html?lang=hi">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="result-actions.js"></script>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Pregnancy Calculator - HealthXRay",
+        "description": "Professional pregnancy calculator to determine due date, pregnancy weeks and development milestones",
+        "url": "https://healthxray.online/pregnancy-calculator.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Due Date Calculation",
+            "Pregnancy Week Tracking",
+            "Trimester Information",
+            "Development Milestones",
+            "Conception Date Estimation",
+            "Multilingual Support",
+            "Privacy Protection"
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "HealthXRay",
+            "url": "https://healthxray.online"
+        }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: #333;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #e83e8c, #ff7e5f);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 5px 15px rgba(232, 62, 140, 0.3);
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-icon {
+            font-size: 36px;
+        }
+        
+        .header-content h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        .header-content p {
+            font-size: 0.9rem;
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+        }
+        
+        .back-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .calculator-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .calculator-card h2 {
+            color: #2c786c;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            border-color: #e83e8c;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.1);
+        }
+        
+        .form-group small {
+            color: #6c757d;
+            display: block;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .calculate-btn {
+            background: linear-gradient(45deg, #e83e8c, #ff7e5f);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(232, 62, 140, 0.3);
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #fff5f7, #e8f4f8);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-card h2 {
+            color: #2c786c;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .step-number {
+            background: #e83e8c;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .step-content p {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+        
+        .disclaimer {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .disclaimer i {
+            color: #856404;
+            font-size: 24px;
+        }
+        
+        .disclaimer-text {
+            color: #856404;
+        }
+        
+        .results {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        
+        .results.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .results-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .results-header h2 {
+            color: #2c786c;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .pregnancy-display {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #fff5f7, #e8f4f8);
+            border-radius: 15px;
+            border: 3px solid #e83e8c;
+        }
+        
+        .pregnancy-week {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #e83e8c;
+            margin: 10px 0;
+        }
+        
+        .pregnancy-trimester {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c786c;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .result-card {
+            background: linear-gradient(135deg, #fff5f7, #e8f4f8);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .result-card:hover {
+            border-color: #e83e8c;
+            transform: translateY(-5px);
+        }
+        
+        .result-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e83e8c;
+            margin: 15px 0;
+        }
+        
+        .result-unit {
+            color: #6c757d;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        
+        .result-desc {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .insights {
+            background: linear-gradient(135deg, #e8f4f8, #fff5f7);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .insights h3 {
+            color: #2c786c;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .insights ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .insights li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #2c3e50;
+        }
+        
+        .insights li:before {
+            content: "•";
+            color: #e83e8c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                padding: 15px;
+            }
+            
+            .header-left {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .calculator-card, .info-card {
+                padding: 20px;
+            }
+            
+            .results-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            
+            .pregnancy-week {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Professional Header -->
+        <div class="header">
+            <div class="header-left">
+                <div class="header-icon">
+                    <i class="fas fa-baby"></i>
+                </div>
+                <div class="header-content">
+                    <h1 id="pageTitle">Pregnancy Calculator</h1>
+                    <p id="pageSubtitle">Professional pregnancy tracking and milestone prediction</p>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div class="language-switcher" style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-globe" style="color: white; font-size: 16px;"></i>
+                    <select id="languageSelect" style="padding: 6px 10px; border: 2px solid rgba(255,255,255,0.3); border-radius: 6px; background: rgba(255,255,255,0.1); color: white; font-weight: 600; cursor: pointer; backdrop-filter: blur(10px);">
+                        <option value="en">English</option>
+                        <option value="ur">اردو</option>
+                        <option value="hi">हिंदी</option>
+                    </select>
+                </div>
+                <a href="index.html" class="back-btn" id="backBtn">
+                    <i class="fas fa-arrow-left"></i>
+                    <span id="backText">Back to Home</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Calculator Form -->
+            <div class="calculator-card">
+                <h2>
+                    <i class="fas fa-calculator"></i>
+                    <span id="calcTitle">Calculate Your Pregnancy</span>
+                </h2>
+                
+                <form id="pregnancyForm">
+                    <div class="form-group">
+                        <label for="lmpDate" id="lmpLabel">Last Menstrual Period (LMP) Date</label>
+                        <input type="date" id="lmpDate" required>
+                        <small id="lmpHelp">Enter the first day of your last menstrual period</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cycleLength" id="cycleLengthLabel">Average Cycle Length</label>
+                        <select id="cycleLength" required>
+                            <option value="21">21 days</option>
+                            <option value="22">22 days</option>
+                            <option value="23">23 days</option>
+                            <option value="24">24 days</option>
+                            <option value="25">25 days</option>
+                            <option value="26">26 days</option>
+                            <option value="27">27 days</option>
+                            <option value="28" selected>28 days (Average)</option>
+                            <option value="29">29 days</option>
+                            <option value="30">30 days</option>
+                            <option value="31">31 days</option>
+                            <option value="32">32 days</option>
+                            <option value="33">33 days</option>
+                            <option value="34">34 days</option>
+                            <option value="35">35 days</option>
+                        </select>
+                        <small id="cycleLengthHelp">Most women have cycles between 21-35 days</small>
+                    </div>
+                    
+                    <button type="submit" class="calculate-btn">
+                        <i class="fas fa-calculator"></i>
+                        <span id="calculateBtnText">Calculate Pregnancy</span>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Information Panel -->
+            <div class="info-card">
+                <h2>
+                    <i class="fas fa-info-circle"></i>
+                    <span id="howItWorksTitle">How It Works</span>
+                </h2>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 id="step1Title">Enter Your LMP Date</h3>
+                        <p id="step1Desc">Provide the first day of your last menstrual period for accurate pregnancy dating.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 id="step2Title">Set Your Cycle Length</h3>
+                        <p id="step2Desc">Enter your average menstrual cycle length to improve calculation accuracy.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 id="step3Title">Get Comprehensive Results</h3>
+                        <p id="step3Desc">Receive your due date, current week, trimester, and important pregnancy milestones.</p>
+                    </div>
+                </div>
+                
+                <div class="disclaimer">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div class="disclaimer-text">
+                        <strong id="disclaimerTitle">Medical Disclaimer:</strong> <span id="disclaimerText">This tool provides estimates only. Always consult with healthcare professionals for medical advice and pregnancy care.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div id="pregnancyResults" class="results">
+            <!-- Results will be populated here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Language system
+        let currentLanguage = 'en';
+        
+        const translations = {
+            en: {
+                pageTitle: "Pregnancy Calculator",
+                pageSubtitle: "Professional pregnancy tracking and milestone prediction",
+                backText: "Back to Home",
+                calcTitle: "Calculate Your Pregnancy",
+                lmpLabel: "Last Menstrual Period (LMP) Date",
+                lmpHelp: "Enter the first day of your last menstrual period",
+                cycleLengthLabel: "Average Cycle Length",
+                cycleLengthHelp: "Most women have cycles between 21-35 days",
+                calculateBtnText: "Calculate Pregnancy",
+                howItWorksTitle: "How It Works",
+                step1Title: "Enter Your LMP Date",
+                step1Desc: "Provide the first day of your last menstrual period for accurate pregnancy dating.",
+                step2Title: "Set Your Cycle Length",
+                step2Desc: "Enter your average menstrual cycle length to improve calculation accuracy.",
+                step3Title: "Get Comprehensive Results",
+                step3Desc: "Receive your due date, current week, trimester, and important pregnancy milestones.",
+                disclaimerTitle: "Medical Disclaimer:",
+                disclaimerText: "This tool provides estimates only. Always consult with healthcare professionals for medical advice and pregnancy care."
+            },
+            ur: {
+                pageTitle: "حمل کیلکولیٹر",
+                pageSubtitle: "پیشہ ورانہ حمل کی ٹریکنگ اور سنگ میل کی پیشن گوئی",
+                backText: "واپس ہوم",
+                calcTitle: "اپنے حمل کا حساب لگائیں",
+                lmpLabel: "آخری ماہواری (LMP) کی تاریخ",
+                lmpHelp: "اپنی آخری ماہواری کا پہلا دن درج کریں",
+                cycleLengthLabel: "اوسط سائیکل کی لمبائی",
+                cycleLengthHelp: "زیادہ تر خواتین کا سائیکل 21-35 دنوں کا ہوتا ہے",
+                calculateBtnText: "حمل کا حساب لگائیں",
+                howItWorksTitle: "یہ کیسے کام کرتا ہے",
+                step1Title: "اپنی LMP تاریخ درج کریں",
+                step1Desc: "درست حمل کی تاریخ کے لیے اپنی آخری ماہواری کا پہلا دن فراہم کریں۔",
+                step2Title: "اپنے سائیکل کی لمبائی سیٹ کریں",
+                step2Desc: "حساب کتاب کی درستگی بہتر بنانے کے لیے اپنے اوسط ماہواری سائیکل کی لمبائی درج کریں۔",
+                step3Title: "جامع نتائج حاصل کریں",
+                step3Desc: "اپنی ڈیلیوری کی تاریخ، موجودہ ہفتہ، سہ ماہی، اور اہم حمل کے سنگ میل حاصل کریں۔",
+                disclaimerTitle: "طبی اعلان:",
+                disclaimerText: "یہ ٹول صرف تخمینہ فراہم کرتا ہے۔ طبی مشورے اور حمل کی دیکھ بھال کے لیے ہمیشہ صحت کے پیشہ ور افراد سے مشورہ کریں۔"
+            },
+            hi: {
+                pageTitle: "गर्भावस्था कैलकुलेटर",
+                pageSubtitle: "पेशेवर गर्भावस्था ट्रैकिंग और मील के पत्थर की भविष्यवाणी",
+                backText: "होम पर वापस",
+                calcTitle: "अपनी गर्भावस्था की गणना करें",
+                lmpLabel: "अंतिम मासिक धर्म (LMP) की तारीख",
+                lmpHelp: "अपने अंतिम मासिक धर्म का पहला दिन दर्ज करें",
+                cycleLengthLabel: "औसत चक्र की लंबाई",
+                cycleLengthHelp: "अधिकांश महिलाओं का चक्र 21-35 दिनों का होता है",
+                calculateBtnText: "गर्भावस्था की गणना करें",
+                howItWorksTitle: "यह कैसे काम करता है",
+                step1Title: "अपनी LMP तारीख दर्ज करें",
+                step1Desc: "सटीक गर्भावस्था डेटिंग के लिए अपने अंतिम मासिक धर्म का पहला दिन प्रदान करें।",
+                step2Title: "अपने चक्र की लंबाई सेट करें",
+                step2Desc: "गणना की सटीकता में सुधार के लिए अपने औसत मासिक धर्म चक्र की लंबाई दर्ज करें।",
+                step3Title: "व्यापक परिणाम प्राप्त करें",
+                step3Desc: "अपनी नियत तारीख, वर्तमान सप्ताह, तिमाही, और महत्वपूर्ण गर्भावस्था मील के पत्थर प्राप्त करें।",
+                disclaimerTitle: "चिकित्सा अस्वीकरण:",
+                disclaimerText: "यह उपकरण केवल अनुमान प्रदान करता है। चिकित्सा सलाह और गर्भावस्था देखभाल के लिए हमेशा स्वास्थ्य पेशेवरों से सलाह लें।"
+            }
+        };
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadLanguageFromStorage();
+            updateLanguage();
+            setupEventListeners();
+            
+            // Set default date to 4 weeks ago
+            const today = new Date();
+            const defaultLMP = new Date(today);
+            defaultLMP.setDate(today.getDate() - 28);
+            document.getElementById('lmpDate').value = defaultLMP.toISOString().split('T')[0];
+        });
+        
+        function setupEventListeners() {
+            // Language switcher
+            document.getElementById('languageSelect').addEventListener('change', function(e) {
+                currentLanguage = e.target.value;
+                localStorage.setItem('healthxray-language', currentLanguage);
+                updateLanguage();
+            });
+            
+            // Form submission
+            document.getElementById('pregnancyForm').addEventListener('submit', calculatePregnancy);
+        }
+        
+        function loadLanguageFromStorage() {
+            const savedLanguage = localStorage.getItem('healthxray-language');
+            if (savedLanguage && translations[savedLanguage]) {
+                currentLanguage = savedLanguage;
+                document.getElementById('languageSelect').value = currentLanguage;
+            }
+        }
+        
+        function updateLanguage() {
+            const t = translations[currentLanguage];
+            
+            // Update page elements
+            document.getElementById('pageTitle').textContent = t.pageTitle;
+            document.getElementById('pageSubtitle').textContent = t.pageSubtitle;
+            document.getElementById('backText').textContent = t.backText;
+            document.getElementById('calcTitle').textContent = t.calcTitle;
+            document.getElementById('lmpLabel').textContent = t.lmpLabel;
+            document.getElementById('lmpHelp').textContent = t.lmpHelp;
+            document.getElementById('cycleLengthLabel').textContent = t.cycleLengthLabel;
+            document.getElementById('cycleLengthHelp').textContent = t.cycleLengthHelp;
+            document.getElementById('calculateBtnText').textContent = t.calculateBtnText;
+            document.getElementById('howItWorksTitle').textContent = t.howItWorksTitle;
+            document.getElementById('step1Title').textContent = t.step1Title;
+            document.getElementById('step1Desc').textContent = t.step1Desc;
+            document.getElementById('step2Title').textContent = t.step2Title;
+            document.getElementById('step2Desc').textContent = t.step2Desc;
+            document.getElementById('step3Title').textContent = t.step3Title;
+            document.getElementById('step3Desc').textContent = t.step3Desc;
+            document.getElementById('disclaimerTitle').textContent = t.disclaimerTitle;
+            document.getElementById('disclaimerText').textContent = t.disclaimerText;
+            
+            // Set document language
+            document.documentElement.lang = currentLanguage;
+            document.title = t.pageTitle + ' - HealthXRay';
+        }
+
+        function calculatePregnancy(e) {
+            e.preventDefault();
+            
+            const lmpDate = new Date(document.getElementById('lmpDate').value);
+            const cycleLength = parseInt(document.getElementById('cycleLength').value);
+            
+            if (!lmpDate || isNaN(lmpDate.getTime())) {
+                alert('Please enter a valid LMP date');
+                return;
+            }
+
+            const today = new Date();
+            
+            // Calculate conception date (ovulation typically occurs 14 days before next period)
+            const conceptionDate = new Date(lmpDate);
+            conceptionDate.setDate(lmpDate.getDate() + (cycleLength - 14));
+            
+            // Calculate due date (280 days from LMP)
+            const dueDate = new Date(lmpDate);
+            dueDate.setDate(lmpDate.getDate() + 280);
+            
+            // Calculate weeks pregnant
+            const daysSinceLMP = Math.floor((today - lmpDate) / (1000 * 60 * 60 * 24));
+            const weeksPregnant = Math.floor(daysSinceLMP / 7);
+            const daysPregnant = daysSinceLMP % 7;
+            
+            // Calculate days until due date
+            const daysUntilDue = Math.ceil((dueDate - today) / (1000 * 60 * 60 * 24));
+            
+            // Determine trimester
+            let trimester, trimesterColor;
+            if (weeksPregnant <= 12) {
+                trimester = 'First Trimester';
+                trimesterColor = '#e83e8c';
+            } else if (weeksPregnant <= 26) {
+                trimester = 'Second Trimester';
+                trimesterColor = '#28a745';
+            } else {
+                trimester = 'Third Trimester';
+                trimesterColor = '#17a2b8';
+            }
+
+            // Get development description
+            const developmentDesc = getPregnancyDevelopment(weeksPregnant);
+            
+            // Format dates
+            const formatDate = (date) => {
+                return date.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            };
+
+            // Display results
+            const resultsDiv = document.getElementById('pregnancyResults');
+            resultsDiv.innerHTML = `
+                <div class="results-header">
+                    <h2>Your Pregnancy Analysis</h2>
+                    <p>Comprehensive pregnancy tracking and milestone information</p>
+                </div>
+                
+                <!-- Pregnancy Display -->
+                <div class="pregnancy-display">
+                    <div class="pregnancy-week" style="color: ${trimesterColor};">${weeksPregnant}</div>
+                    <div class="pregnancy-trimester" style="color: ${trimesterColor};">Weeks + ${daysPregnant} Days</div>
+                    <div style="color: #6c757d; margin: 0;">${trimester}</div>
+                </div>
+                
+                <!-- Results Grid -->
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Due Date</h3>
+                        <div class="result-value">${dueDate.getDate()}</div>
+                        <div class="result-unit">${dueDate.toLocaleDateString('en-US', { month: 'long' })} ${dueDate.getFullYear()}</div>
+                        <div class="result-desc">${formatDate(dueDate)}</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Pregnancy Days</h3>
+                        <div class="result-value">${daysSinceLMP}</div>
+                        <div class="result-unit">Days</div>
+                        <div class="result-desc">Since LMP</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Time Remaining</h3>
+                        <div class="result-value">${Math.floor(daysUntilDue / 7)}</div>
+                        <div class="result-unit">Weeks ${daysUntilDue % 7} Days</div>
+                        <div class="result-desc">Until due date</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Current Trimester</h3>
+                        <div class="result-value" style="font-size: 1.5rem; color: ${trimesterColor};">${trimester.split(' ')[0]}</div>
+                        <div class="result-unit">${trimester}</div>
+                        <div class="result-desc">Current stage</div>
+                    </div>
+                </div>
+                
+                <!-- Development Information -->
+                <div class="insights">
+                    <h3><i class="fas fa-baby"></i> Baby Development at Week ${weeksPregnant}</h3>
+                    <p style="color: #2c3e50; margin-bottom: 20px;">${developmentDesc}</p>
+                    
+                    <ul>
+                        <li>Regular prenatal check-ups are essential for monitoring health</li>
+                        <li>Maintain a balanced diet rich in folic acid, iron, and calcium</li>
+                        <li>Stay hydrated and get adequate rest</li>
+                        <li>Avoid alcohol, smoking, and harmful substances</li>
+                        <li>Take prenatal vitamins as recommended by your doctor</li>
+                        <li>Monitor baby movements after week 20</li>
+                    </ul>
+                </div>
+            `;
+            
+            // Add professional action buttons for PDF, print, and share
+            const resultData = {
+                weeksPregnant: `${weeksPregnant} weeks, ${daysPregnant} days`,
+                trimester,
+                dueDate: formatDate(dueDate),
+                conceptionDate: formatDate(conceptionDate),
+                daysUntilDue: `${Math.floor(daysUntilDue / 7)} weeks, ${daysUntilDue % 7} days`,
+                developmentDesc,
+                patientInfo: {
+                    lmpDate: formatDate(lmpDate),
+                    cycleLength: `${cycleLength} days`,
+                    conceptionDate: formatDate(conceptionDate),
+                    calculationDate: formatDate(new Date())
+                }
+            };
+            
+            // Add action buttons using result-actions.js
+            if (typeof resultActions !== 'undefined') {
+                resultActions.addActionButtons(resultsDiv, resultData, 'pregnancy');
+            }
+            
+            resultsDiv.classList.add('active');
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Get pregnancy development description
+        function getPregnancyDevelopment(week) {
+            const developments = {
+                1: "Your menstrual cycle has started. Conception hasn't occurred yet.",
+                4: "Baby's heart begins to beat. The baby is about 4mm long.",
+                8: "All major organs have formed. Fingers and fingernails are developing.",
+                12: "Baby is about 5cm long. All organs are functioning.",
+                16: "Baby is about 11cm long. You may feel the first movements.",
+                20: "Baby is about 16cm long. Hair and nails are growing.",
+                24: "Baby is about 21cm long. Eyelashes and eyebrows have formed.",
+                28: "Baby is about 25cm long. Eyes are beginning to open.",
+                32: "Baby is about 28cm long. Bones are hardening.",
+                36: "Baby is about 31cm long. Head is moving down into position.",
+                40: "Baby is ready for delivery. Average weight is 3-4 kilograms."
+            };
+            
+            // Find the closest development week
+            let closestWeek = 1;
+            for (let w in developments) {
+                if (Math.abs(week - w) < Math.abs(week - closestWeek)) {
+                    closestWeek = w;
+                }
+            }
+            
+            return developments[closestWeek] || "Pregnancy is progressing well. Continue regular check-ups with your healthcare provider.";
+        }
+    </script>
+</body>
+</html>
